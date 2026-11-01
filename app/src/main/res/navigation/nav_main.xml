@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Grafo raíz. Cada rol tiene su propio subgrafo en un archivo aparte (nav_trainer, nav_admin,
+    nav_intern, nav_store) para que cada integrante edite solo el suyo y no haya conflictos.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.forcetech.jmfitapp.ui.auth.LoginFragment"
+        android:label="Login" />
+
+    <!-- Acción global: volver al login limpiando todo el historial (cerrar sesión) -->
+    <action
+        android:id="@+id/action_global_login"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/nav_main"
+        app:popUpToInclusive="true" />
+
+    <include app:graph="@navigation/nav_trainer" />
+    <include app:graph="@navigation/nav_admin" />
+    <include app:graph="@navigation/nav_intern" />
+    <include app:graph="@navigation/nav_store" />
+</navigation>

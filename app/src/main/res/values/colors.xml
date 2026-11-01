@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta tomada del diseño (Figma): naranja-rojo, fondos blancos y campos grises -->
+    <color name="jmfit_primary">#FFE8401B</color>
+    <color name="jmfit_primary_container">#FFFDE6DF</color>
+    <color name="jmfit_field">#FFEEEEEE</color>
+    <color name="jmfit_outline">#FFD6D6D6</color>
+    <color name="jmfit_text">#FF141414</color>
+    <color name="jmfit_text_secondary">#FF6A6A6A</color>
+    <color name="jmfit_error">#FFC62828</color>
+    <color name="jmfit_error_container">#FFFDECEA</color>
 </resources>
