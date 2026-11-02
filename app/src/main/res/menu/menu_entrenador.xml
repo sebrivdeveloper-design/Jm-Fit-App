@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra inferior del ENTRENADOR. Los ids coinciden con los destinos de nav_trainer.xml. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/trainerInicioFragment"
+        android:icon="@drawable/ic_nav_inicio"
+        android:title="@string/trainer_tab_inicio" />
+    <item
+        android:id="@+id/trainerClientesFragment"
+        android:icon="@drawable/ic_nav_clientes"
+        android:title="@string/trainer_tab_clientes" />
+    <item
+        android:id="@+id/trainerRutinasFragment"
+        android:icon="@drawable/ic_nav_rutinas"
+        android:title="@string/trainer_tab_rutinas" />
+    <item
+        android:id="@+id/trainerCatalogoFragment"
+        android:icon="@drawable/ic_nav_catalogo"
+        android:title="@string/trainer_tab_catalogo" />
+</menu>

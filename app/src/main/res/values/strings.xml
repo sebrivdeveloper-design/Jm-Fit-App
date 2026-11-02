@@ -131,6 +131,13 @@
     <string name="form_error_guardar">No fue posible guardar la rutina. Inténtalo nuevamente.</string>
     <string name="form_error_cargar">No fue posible cargar los datos del formulario. Inténtalo nuevamente.</string>
 
+    <!-- Barra inferior del entrenador (nombres editables aquí) -->
+    <string name="trainer_tab_inicio">Inicio</string>
+    <string name="trainer_tab_clientes">Mis clientes</string>
+    <string name="trainer_tab_rutinas">Rutinas</string>
+    <string name="trainer_tab_catalogo">Catálogo</string>
+    <string name="trainer_tab_pendiente">Pantalla pendiente: no forma parte de las HU de esta entrega.</string>
+
     <!-- Pantallas provisionales por rol (las reemplaza cada responsable) -->
     <string name="placeholder_pendiente">Pantalla pendiente de implementar por el responsable de este rol.</string>
     <string name="placeholder_sesion_de">Sesión: %1$s</string>
