@@ -20,6 +20,53 @@
     <string name="login_error_bloqueado">Demasiados intentos. Inténtalo de nuevo en %1$d min.</string>
     <string name="login_error_inesperado">No fue posible iniciar sesión. Inténtalo nuevamente.</string>
 
+    <!-- Rutinas del entrenador (ENT-6 y ENT-7) -->
+    <string name="rutinas_seccion">Rutinas</string>
+    <string name="rutinas_titulo">Rutinas</string>
+    <string name="rutinas_subtitulo">Consulta las rutinas estándar y crea rutinas personalizadas para un cliente específico.</string>
+    <string name="rutinas_crear_personalizada">Crear rutina personalizada</string>
+    <string name="rutinas_tab_estandar">Estándar</string>
+    <string name="rutinas_tab_personalizadas">Mis personalizadas</string>
+    <string name="rutinas_buscar_hint">Buscar por nombre, objetivo, nivel o cliente</string>
+    <string name="rutinas_vacio_estandar">No hay rutinas estándar disponibles.</string>
+    <string name="rutinas_vacio_personalizadas">Aún no tienes rutinas personalizadas. Crea la primera con el botón de arriba.</string>
+    <string name="rutinas_sin_resultados">No se encontraron rutinas con los criterios ingresados.</string>
+    <string name="rutinas_proximamente">Esta opción estará disponible próximamente.</string>
+    <string name="rutinas_label_objetivo">Objetivo</string>
+    <string name="rutinas_label_nivel">Nivel</string>
+    <string name="rutinas_label_ejercicios">Ejercicios</string>
+    <string name="rutinas_label_asignada">Asignada a</string>
+    <string name="rutinas_sin_asignar">Sin asignar</string>
+    <string name="rutinas_sin_dato">—</string>
+    <string name="rutinas_estado_activa">Activa</string>
+    <string name="rutinas_estado_inhabilitada">Inhabilitada</string>
+    <string name="rutinas_cd_ver">Ver detalle</string>
+    <string name="rutinas_cd_editar">Editar rutina</string>
+    <string name="rutinas_cd_inhabilitar">Inhabilitar rutina</string>
+    <string name="rutinas_cd_reactivar">Reactivar rutina</string>
+    <string name="dialogo_aceptar">Aceptar</string>
+    <string name="dialogo_cancelar">Cancelar</string>
+    <string name="rutinas_inhabilitar_titulo">Inhabilitar rutina</string>
+    <string name="rutinas_inhabilitar_mensaje">¿Deseas inhabilitar la rutina «%1$s»? Si está asignada a un cliente, su asignación se finalizará. La rutina seguirá registrada y podrás consultarla.</string>
+    <string name="rutinas_reactivar_titulo">Reactivar rutina</string>
+    <string name="rutinas_reactivar_mensaje">¿Deseas reactivar la rutina «%1$s»? Quedará activa y sin cliente asignado.</string>
+    <string name="rutinas_inhabilitada_ok">Rutina inhabilitada correctamente.</string>
+    <string name="rutinas_reactivada_ok">Rutina reactivada correctamente.</string>
+    <string name="rutinas_error_estado">No fue posible actualizar la rutina. Inténtalo nuevamente.</string>
+
+    <!-- Detalle de rutina (ENT-6) -->
+    <string name="detalle_label">Detalle de rutina</string>
+    <string name="detalle_volver">Volver a Rutinas</string>
+    <string name="detalle_tipo_personalizada">Personalizada</string>
+    <string name="detalle_notas">Notas</string>
+    <string name="detalle_sin_ejercicios">Esta rutina aún no tiene ejercicios.</string>
+    <string name="detalle_no_disponible">La rutina que buscas no existe o no está disponible.</string>
+    <string name="detalle_error_cargar">No fue posible cargar la rutina. Inténtalo nuevamente.</string>
+    <string name="detalle_reintentar">Reintentar</string>
+    <string name="ejercicio_series_reps">%1$s series × %2$s reps</string>
+    <string name="ejercicio_peso">%1$s kg</string>
+    <string name="ejercicio_descanso">Descanso %1$d s</string>
+
     <!-- Pantallas provisionales por rol (las reemplaza cada responsable) -->
     <string name="placeholder_pendiente">Pantalla pendiente de implementar por el responsable de este rol.</string>
     <string name="placeholder_sesion_de">Sesión: %1$s</string>
