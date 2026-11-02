@@ -22,12 +22,15 @@ class MainActivity : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
         ) { v, insets ->
-            // Se incluye el teclado (ime) para que los campos no queden tapados al escribir.
-            val barras = insets.getInsets(
-                WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime()
-            )
+            val statusBars = insets.getInsets(WindowInsetsCompat.Type.statusBars())
+            val ime = insets.getInsets(WindowInsetsCompat.Type.ime())
 
-            v.setPadding(barras.left, barras.top, barras.right, barras.bottom)
+            // Si el teclado está visible, aplicamos su altura como padding inferior.
+            // Si no está visible, dejamos bottom = 0 para que la barra de navegación inferior
+            // se extienda hasta el borde de la pantalla sin espacio blanco duplicado.
+            val bottomPadding = if (ime.bottom > 0) ime.bottom else 0
+
+            v.setPadding(statusBars.left, statusBars.top, statusBars.right, bottomPadding)
 
             insets
         }

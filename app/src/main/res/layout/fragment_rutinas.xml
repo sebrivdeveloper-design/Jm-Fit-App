@@ -141,4 +141,11 @@
             tools:text="@string/rutinas_sin_resultados"
             tools:visibility="visible" />
     </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/barraEntrenador"
+        style="@style/Widget.JmFit.BottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_entrenador" />
 </LinearLayout>

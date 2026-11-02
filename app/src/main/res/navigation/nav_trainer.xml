@@ -11,6 +11,20 @@
         android:name="com.forcetech.jmfitapp.ui.trainer.RutinasFragment"
         android:label="@string/rutinas_titulo" />
 
+    <!-- Pestañas de la barra inferior fuera del alcance de la entrega: pantallas provisionales -->
+    <fragment
+        android:id="@+id/trainerInicioFragment"
+        android:name="com.forcetech.jmfitapp.ui.trainer.TrainerTabFragment"
+        android:label="@string/trainer_tab_inicio" />
+    <fragment
+        android:id="@+id/trainerClientesFragment"
+        android:name="com.forcetech.jmfitapp.ui.trainer.TrainerTabFragment"
+        android:label="@string/trainer_tab_clientes" />
+    <fragment
+        android:id="@+id/trainerCatalogoFragment"
+        android:name="com.forcetech.jmfitapp.ui.trainer.TrainerTabFragment"
+        android:label="@string/trainer_tab_catalogo" />
+
     <!-- ENT-6: detalle de una rutina. Recibe el id por argumento. -->
     <fragment
         android:id="@+id/trainerRutinaDetalleFragment"

@@ -48,6 +48,7 @@ class RutinasFragment : Fragment(R.layout.fragment_rutinas) {
         _binding = FragmentRutinasBinding.bind(view)
 
         binding.tvFecha.text = fechaDeHoy()
+        BarraEntrenador.configurar(binding.barraEntrenador, findNavController(), R.id.trainerRutinasFragment)
 
         adapter = RutinaAdapter(
             alVer = { abrirDetalle(it) },
