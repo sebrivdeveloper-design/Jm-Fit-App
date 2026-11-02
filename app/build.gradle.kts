@@ -46,6 +46,8 @@ dependencies {
 
     implementation(libs.androidx.core.splashscreen)
 
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
+
     // Dependencias de Room para la base de datos local
     implementation(libs.androidx.room.runtime) // Funcionalidad principal de Room
     implementation(libs.androidx.room.ktx) // Extensiones de Kotlin y corrutinas

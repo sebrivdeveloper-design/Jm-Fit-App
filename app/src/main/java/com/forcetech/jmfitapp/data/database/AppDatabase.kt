@@ -4,7 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.forcetech.jmfitapp.data.dao.ProductoDao
 import com.forcetech.jmfitapp.model.InitialEntity
+import com.forcetech.jmfitapp.model.Producto
 
 /**
  * Clase principal de la base de datos de Room.
@@ -14,13 +17,15 @@ import com.forcetech.jmfitapp.model.InitialEntity
  * - version: El número de versión del esquema de la base de datos.
  */
 @Database(
-    entities = [InitialEntity::class],
+    entities = [Producto::class],
     version = 1,
     exportSchema = false
 )
+@TypeConverters(BigDecimalConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    /** Proporciona acceso a las operaciones del DAO de usuarios. */
+    /** Proporciona acceso a las operaciones del DAO de productos. */
+    abstract fun productoDao(): ProductoDao
 
     companion object {
         /**
