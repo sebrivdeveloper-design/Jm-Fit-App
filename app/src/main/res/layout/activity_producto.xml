@@ -6,7 +6,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/fondo"
-    tools:context=".ui.ProductoActivity">
+    tools:context=".ui.ProductoActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="12dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="PRODUCTOS"
+            android:textColor="@color/texto"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gris"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:text="@string/placeholder_cerrar_sesion"
+            android:textColor="@color/jmfit_primary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -156,5 +191,12 @@
             android:visibility="gone" />
 
     </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/barraEntrenador"
+        style="@style/Widget.JmFit.BottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_administrador" />
 
 </LinearLayout>

@@ -26,6 +26,16 @@ import java.util.Locale
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+import android.content.Intent
+import com.forcetech.jmfitapp.JmFitApplication
+import com.forcetech.jmfitapp.MainActivity
+import java.text.SimpleDateFormat
+import java.util.Date
+
+
+
 
 class ProductoActivity : AppCompatActivity() {
 
@@ -40,6 +50,10 @@ class ProductoActivity : AppCompatActivity() {
     private lateinit var btnTodos: Button
     private lateinit var btnActivos: Button
     private lateinit var btnInactivos: Button
+
+    private lateinit var tvFecha: TextView
+    private lateinit var btnCerrarSesion: TextView
+    private lateinit var barraAdministrador: BottomNavigationView
 
     // 0 = Todos, 1 = Activos, 2 = Inactivos
     private var estadoSeleccionado = 0
@@ -62,6 +76,9 @@ class ProductoActivity : AppCompatActivity() {
         configurarFiltros()
         configurarBuscador()
         configurarBotones()
+        tvFecha.text = fechaDeHoy()
+        configurarCerrarSesion()
+        configurarBarraAdministrador()
 
         cargarProductos()
     }
@@ -106,6 +123,9 @@ class ProductoActivity : AppCompatActivity() {
         btnTodos = findViewById(R.id.btnTodos)
         btnActivos = findViewById(R.id.btnActivos)
         btnInactivos = findViewById(R.id.btnInactivos)
+        tvFecha = findViewById(R.id.tvFecha)
+        btnCerrarSesion = findViewById(R.id.btnCerrarSesion)
+        barraAdministrador = findViewById(R.id.barraEntrenador)
     }
 
     private fun configurarRecyclerView() {
@@ -233,6 +253,45 @@ class ProductoActivity : AppCompatActivity() {
         ).setOnClickListener {
 
             mostrarFormulario()
+        }
+    }
+
+    private fun fechaDeHoy(): String {
+        val local = Locale("es", "CO")
+        return SimpleDateFormat("EEEE, d 'de' MMMM 'de' yyyy", local)
+            .format(Date())
+            .replaceFirstChar { it.titlecase(local) }
+    }
+
+    private fun configurarCerrarSesion() {
+        btnCerrarSesion.setOnClickListener {
+            val appContainer = (application as JmFitApplication).container
+
+            appContainer.authRepository.cerrarSesion()
+
+            val intent = Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
+
+            startActivity(intent)
+            finish()
+        }
+    }
+
+    private fun configurarBarraAdministrador() {
+        barraAdministrador.selectedItemId = R.id.adminProductos
+
+        barraAdministrador.setOnItemSelectedListener { item ->
+            if (item.itemId != R.id.adminProductos) {
+                Toast.makeText(
+                    this,
+                    "Esta sección todavía no está disponible",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            true
         }
     }
 
