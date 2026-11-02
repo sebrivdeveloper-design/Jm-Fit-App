@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Círculo punteado para la foto/avatar (la carga real de fotos está fuera del alcance) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/cli_tarjeta" />
+    <stroke
+        android:width="1dp"
+        android:color="@color/jmfit_text_secondary"
+        android:dashGap="3dp"
+        android:dashWidth="3dp" />
+</shape>

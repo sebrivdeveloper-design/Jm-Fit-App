@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Barra inferior del CLIENTE INTERNO. Inicio, Entreno y Perfil usan los mismos ids de los destinos
+    de nav_intern.xml. Progreso y Chat solo se muestran (no navegan en esta HU).
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/internHomeFragment"
+        android:icon="@drawable/ic_cli_home"
+        android:title="@string/cli_tab_inicio" />
+    <item
+        android:id="@+id/internWorkoutFragment"
+        android:icon="@drawable/ic_cli_workout"
+        android:title="@string/cli_tab_entreno" />
+    <item
+        android:id="@+id/cliTabProgreso"
+        android:icon="@drawable/ic_cli_progress"
+        android:title="@string/cli_tab_progreso" />
+    <item
+        android:id="@+id/cliTabChat"
+        android:icon="@drawable/ic_cli_chat"
+        android:title="@string/cli_tab_chat" />
+    <item
+        android:id="@+id/internProfileFragment"
+        android:icon="@drawable/ic_cli_profile"
+        android:title="@string/cli_tab_perfil" />
+</menu>

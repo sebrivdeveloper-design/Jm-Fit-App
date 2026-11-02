@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- HU Cliente — CA01: pantalla principal del cliente interno. Solo "Iniciar entrenamiento" tiene acción. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cli_fondo"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Encabezado: fecha, saludo y avatar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvFecha"
+                        style="@style/TextAppearance.JmFit.Cliente.Overline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="Lunes, 2 nov" />
+
+                    <TextView
+                        android:id="@+id/tvSaludo"
+                        style="@style/TextAppearance.JmFit.Cliente.Display"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        tools:text="Hola, Camila" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_cli_avatar"
+                    android:contentDescription="@string/cli_avatar_desc"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_cli_profile"
+                    app:tint="@color/jmfit_text_secondary" />
+            </LinearLayout>
+
+            <!-- Tarjeta del entrenamiento del día -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_cli_tarjeta_oscura"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/TextAppearance.JmFit.Cliente.Overline.Oscuro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cli_entreno_de_hoy" />
+
+                <TextView
+                    android:id="@+id/tvNombreEntreno"
+                    style="@style/TextAppearance.JmFit.Cliente.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    tools:text="Día de empuje — Pecho y hombros" />
+
+                <TextView
+                    android:id="@+id/tvDetalleEntreno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="@color/cli_texto_sobre_oscuro"
+                    tools:text="5 ejercicios · unos 50 minutos" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIniciarEntreno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/cli_iniciar_entreno"
+                    app:icon="@drawable/ic_cli_arrow_forward"
+                    app:iconGravity="textEnd"
+                    app:iconSize="18dp"
+                    app:shapeAppearance="@style/ShapeAppearance.JmFit.Small" />
+            </LinearLayout>
+
+            <!-- Resumen semanal -->
+            <TextView
+                style="@style/TextAppearance.JmFit.Cliente.Section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/cli_esta_semana" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_cli_tarjeta"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cli_stat_entrenos"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="@color/jmfit_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvStatEntrenos"
+                        style="@style/TextAppearance.JmFit.Cliente.Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textSize="20sp"
+                        tools:text="3/4" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_cli_tarjeta"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cli_stat_peso"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="@color/jmfit_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvStatPeso"
+                        style="@style/TextAppearance.JmFit.Cliente.Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:maxLines="1"
+                        android:textColor="@color/cli_rojo_texto"
+                        android:textSize="20sp"
+                        tools:text="-0,8 kg" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_cli_tarjeta"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cli_stat_racha"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="@color/jmfit_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvStatRacha"
+                        style="@style/TextAppearance.JmFit.Cliente.Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:maxLines="1"
+                        android:textSize="20sp"
+                        tools:text="6 días" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Fotos de progreso (solo visual) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TextAppearance.JmFit.Cliente.Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/cli_fotos_progreso" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cli_ver_todo"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                    android:textColor="@color/jmfit_primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contenedorFotos"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvFoto1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_dashed_box"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                    android:textColor="@color/jmfit_text_secondary"
+                    tools:text="Sem 1" />
+
+                <TextView
+                    android:id="@+id/tvFoto2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_dashed_box"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                    android:textColor="@color/jmfit_text_secondary"
+                    tools:text="Sem 4" />
+
+                <TextView
+                    android:id="@+id/tvFoto3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_dashed_box"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                    android:textColor="@color/jmfit_text_secondary"
+                    tools:text="Sem 8" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_dashed_box"
+                    android:contentDescription="@string/cli_agregar_foto_desc"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_add"
+                    app:tint="@color/jmfit_text" />
+            </LinearLayout>
+
+            <!-- Mensaje del entrenador (solo visual) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_cli_tarjeta"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_cli_avatar"
+                    android:contentDescription="@string/cli_avatar_entrenador_desc"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_cli_profile"
+                    app:tint="@color/jmfit_text_secondary" />
+
+                <TextView
+                    android:id="@+id/tvNombreEntrenador"
+                    style="@style/TextAppearance.JmFit.Cliente.Value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textSize="15sp"
+                    tools:text="Juan Madroñero" />
+
+                <TextView
+                    android:id="@+id/tvMensajeEntrenador"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="@color/jmfit_text_secondary"
+                    tools:text="Buen trabajo hoy. Mantén el codo pegado…" />
+
+                <TextView
+                    android:id="@+id/tvHaceMensaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+                    android:textColor="@color/jmfit_text_secondary"
+                    tools:text="hace 2 min" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/jmfit_text_secondary" />
+
+            <!-- Promoción de suplementos (solo visual) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_cli_tarjeta"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_cli_etiqueta_roja"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/cli_suplementos"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                    android:textColor="@color/jmfit_primary" />
+
+                <TextView
+                    style="@style/TextAppearance.JmFit.Cliente.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="@string/cli_suplementos_mensaje" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="8dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_cli_chevron_right"
+                    app:tint="@color/jmfit_text" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View style="@style/Widget.JmFit.Cliente.Divider" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/barraCliente"
+        style="@style/Widget.JmFit.BottomNav.Cliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_cliente" />
+</LinearLayout>
