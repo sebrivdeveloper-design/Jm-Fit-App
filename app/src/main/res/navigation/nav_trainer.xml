@@ -20,4 +20,15 @@
             android:name="rutinaId"
             app:argType="long" />
     </fragment>
+
+    <!-- ENT-5 (crear) y ENT-8 (editar): mismo formulario. rutinaId = 0 crea; mayor que 0 edita. -->
+    <fragment
+        android:id="@+id/trainerRutinaFormFragment"
+        android:name="com.forcetech.jmfitapp.ui.trainer.RutinaFormFragment"
+        android:label="@string/form_titulo_crear">
+        <argument
+            android:name="rutinaId"
+            android:defaultValue="0L"
+            app:argType="long" />
+    </fragment>
 </navigation>

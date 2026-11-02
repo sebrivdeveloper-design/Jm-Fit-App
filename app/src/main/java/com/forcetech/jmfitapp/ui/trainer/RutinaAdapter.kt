@@ -49,7 +49,8 @@ class RutinaAdapter(
             b.tvAsignada.text = r.clienteNombre ?: contexto.getString(R.string.rutinas_sin_asignar)
 
             // Las estándar son de solo lectura: únicamente se pueden ver
-            b.btnEditar.visibility = if (personalizada) View.VISIBLE else View.GONE
+            // y solo se editan las personalizadas activas (una inhabilitada se reactiva primero)
+            b.btnEditar.visibility = if (personalizada && activa) View.VISIBLE else View.GONE
             b.btnEstadoRutina.visibility = if (personalizada) View.VISIBLE else View.GONE
             b.btnEstadoRutina.contentDescription = contexto.getString(
                 if (activa) R.string.rutinas_cd_inhabilitar else R.string.rutinas_cd_reactivar

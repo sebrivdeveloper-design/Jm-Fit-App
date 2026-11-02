@@ -51,13 +51,23 @@ class RutinasFragment : Fragment(R.layout.fragment_rutinas) {
 
         adapter = RutinaAdapter(
             alVer = { abrirDetalle(it) },
-            alEditar = { avisarProximamente() }, // ENT-8
+            alEditar = { abrirFormulario(it.id) }, // ENT-8
             alCambiarEstado = { confirmarCambioEstado(it) }
         )
         binding.rvRutinas.layoutManager = LinearLayoutManager(requireContext())
         binding.rvRutinas.adapter = adapter
 
-        binding.btnCrearPersonalizada.setOnClickListener { avisarProximamente() } // ENT-5
+        binding.btnCrearPersonalizada.setOnClickListener { abrirFormulario(0L) } // ENT-5
+
+        // El formulario avisa aquí cuando guardó, para mostrar la confirmación sobre el listado
+        parentFragmentManager.setFragmentResultListener(
+            RutinaFormFragment.RESULT_KEY, viewLifecycleOwner
+        ) { _, datos ->
+            val mensaje = datos.getInt(RutinaFormFragment.RESULT_MENSAJE, 0)
+            if (mensaje != 0 && _binding != null) {
+                Snackbar.make(binding.root, mensaje, Snackbar.LENGTH_LONG).show()
+            }
+        }
 
         binding.btnCerrarSesion.setOnClickListener {
             appContainer.authRepository.cerrarSesion()
@@ -126,8 +136,12 @@ class RutinasFragment : Fragment(R.layout.fragment_rutinas) {
             .show()
     }
 
-    private fun avisarProximamente() {
-        Snackbar.make(binding.root, R.string.rutinas_proximamente, Snackbar.LENGTH_SHORT).show()
+    /** ENT-5 (rutinaId = 0, crear) y ENT-8 (rutinaId > 0, editar). */
+    private fun abrirFormulario(rutinaId: Long) {
+        findNavController().navigate(
+            R.id.trainerRutinaFormFragment,
+            bundleOf(RutinaFormFragment.ARG_RUTINA_ID to rutinaId)
+        )
     }
 
     private fun fechaDeHoy(): String {

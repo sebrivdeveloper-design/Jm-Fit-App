@@ -31,7 +31,6 @@
     <string name="rutinas_vacio_estandar">No hay rutinas estándar disponibles.</string>
     <string name="rutinas_vacio_personalizadas">Aún no tienes rutinas personalizadas. Crea la primera con el botón de arriba.</string>
     <string name="rutinas_sin_resultados">No se encontraron rutinas con los criterios ingresados.</string>
-    <string name="rutinas_proximamente">Esta opción estará disponible próximamente.</string>
     <string name="rutinas_label_objetivo">Objetivo</string>
     <string name="rutinas_label_nivel">Nivel</string>
     <string name="rutinas_label_ejercicios">Ejercicios</string>
@@ -66,6 +65,71 @@
     <string name="ejercicio_series_reps">%1$s series × %2$s reps</string>
     <string name="ejercicio_peso">%1$s kg</string>
     <string name="ejercicio_descanso">Descanso %1$d s</string>
+
+    <!-- Formulario de rutina personalizada (ENT-5 crear / ENT-8 editar) -->
+    <string name="form_titulo_crear">Crear rutina personalizada</string>
+    <string name="form_subtitulo_crear">Diseña una rutina para un cliente específico. Se asignará al guardarla.</string>
+    <string name="form_titulo_editar">Editar rutina personalizada</string>
+    <string name="form_subtitulo_editar">Modifica los datos, los ejercicios o las notas de la rutina.</string>
+    <string name="form_seccion_1_numero">01</string>
+    <string name="form_seccion_1">Datos de la rutina</string>
+    <string name="form_seccion_2_numero">02</string>
+    <string name="form_seccion_2">Ejercicios y configuración</string>
+    <string name="form_seccion_3_numero">03</string>
+    <string name="form_seccion_3">Notas</string>
+    <string name="form_label_cliente">Cliente *</string>
+    <string name="form_label_nombre">Nombre de la rutina *</string>
+    <string name="form_label_objetivo">Objetivo *</string>
+    <string name="form_label_nivel">Nivel *</string>
+    <string name="form_label_dia">Día de la semana *</string>
+    <string name="form_label_ejercicio">Ejercicio *</string>
+    <string name="form_label_series">Series *</string>
+    <string name="form_label_repeticiones">Repeticiones *</string>
+    <string name="form_label_peso">Peso (kg)</string>
+    <string name="form_hint_cliente">Buscar cliente por nombre</string>
+    <string name="form_hint_nombre">Ej. Hipertrofia — Fase 1</string>
+    <string name="form_hint_seleccion">Selecciona</string>
+    <string name="form_hint_ejercicio">Selecciona un ejercicio</string>
+    <string name="form_hint_series">4</string>
+    <string name="form_hint_repeticiones">10 ó 8-12</string>
+    <string name="form_hint_peso">Opcional</string>
+    <string name="form_hint_notas">Indicaciones adicionales para el cliente (opcional)</string>
+    <string name="form_agregar_ejercicio">Agregar ejercicio</string>
+    <string name="form_actualizar_ejercicio">Actualizar ejercicio</string>
+    <string name="form_cancelar_edicion_ejercicio">Cancelar edición del ejercicio</string>
+    <string name="form_sin_ejercicios">Aún no has agregado ejercicios.</string>
+    <string name="form_contador">%1$d agregados</string>
+    <string name="form_guardar_rutina">Guardar rutina</string>
+    <string name="form_guardar_cambios">Guardar cambios</string>
+    <string name="form_cd_editar_ejercicio">Modificar ejercicio</string>
+    <string name="form_cd_quitar">Quitar ejercicio</string>
+    <string name="form_linea_datos">%1$d series × %2$s reps</string>
+    <string name="form_linea_datos_peso">%1$d series × %2$s reps · %3$s kg</string>
+
+    <!-- Validaciones -->
+    <string name="form_error_requerido">Este campo es obligatorio.</string>
+    <string name="form_error_cliente_lista">Selecciona un cliente de la lista.</string>
+    <string name="form_error_series">Ingresa un número de series entre 1 y 20.</string>
+    <string name="form_error_repeticiones">Ingresa las repeticiones (por ejemplo 10 u 8-12).</string>
+    <string name="form_error_peso">El peso debe ser un número mayor que 0.</string>
+    <string name="form_error_sin_ejercicios">Agrega al menos un ejercicio a la rutina.</string>
+    <string name="form_nombre_duplicado">Ya existe una rutina tuya con este nombre.</string>
+    <string name="form_ejercicio_repetido">Este ejercicio ya está agregado en ese día.</string>
+    <string name="form_sin_clientes">No tienes clientes disponibles para asignar.</string>
+
+    <!-- Confirmación y resultados -->
+    <string name="form_confirmar_crear_titulo">Guardar rutina</string>
+    <string name="form_confirmar_crear_mensaje">¿Deseas guardar la rutina «%1$s» y asignarla a %2$s?</string>
+    <string name="form_confirmar_crear_reemplazo">\n\nLa rutina activa actual de este cliente («%1$s») se finalizará.</string>
+    <string name="form_confirmar_editar_titulo">Guardar cambios</string>
+    <string name="form_confirmar_editar_mensaje">¿Deseas guardar los cambios de la rutina «%1$s»?</string>
+    <string name="form_confirmar_editar_cliente">\n\nTambién se asignará a %1$s.</string>
+    <string name="form_creada_ok">Rutina guardada y asignada correctamente.</string>
+    <string name="form_actualizada_ok">Rutina actualizada correctamente.</string>
+    <string name="form_cliente_invalido">El cliente seleccionado ya no está disponible. Elige otro.</string>
+    <string name="form_no_disponible">La rutina no existe, está inhabilitada o no te pertenece.</string>
+    <string name="form_error_guardar">No fue posible guardar la rutina. Inténtalo nuevamente.</string>
+    <string name="form_error_cargar">No fue posible cargar los datos del formulario. Inténtalo nuevamente.</string>
 
     <!-- Pantallas provisionales por rol (las reemplaza cada responsable) -->
     <string name="placeholder_pendiente">Pantalla pendiente de implementar por el responsable de este rol.</string>

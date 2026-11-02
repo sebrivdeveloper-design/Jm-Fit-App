@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLinea"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvLineaNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/jmfit_text"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="Press de banca" />
+
+        <TextView
+            android:id="@+id/tvLineaDatos"
+            style="@style/TextAppearance.JmFit.Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            tools:text="4 series × 10 reps · 40 kg" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnEditarLinea"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/form_cd_editar_ejercicio"
+        android:padding="9dp"
+        android:src="@drawable/ic_edit"
+        app:tint="@color/jmfit_text_secondary" />
+
+    <ImageButton
+        android:id="@+id/btnQuitarLinea"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/form_cd_quitar"
+        android:padding="9dp"
+        android:src="@drawable/ic_delete"
+        app:tint="@color/jmfit_primary" />
+</LinearLayout>

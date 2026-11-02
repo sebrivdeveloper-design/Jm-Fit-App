@@ -45,6 +45,11 @@
         <item name="hintEnabled">false</item>
     </style>
 
+    <!-- Campo con lista desplegable (objetivo, nivel, día, ejercicio, cliente) -->
+    <style name="Widget.JmFit.TextInputLayout.Dropdown" parent="Widget.JmFit.TextInputLayout">
+        <item name="endIconMode">dropdown_menu</item>
+    </style>
+
     <!-- Botón de pestaña segmentada (Estándar | Mis personalizadas) -->
     <style name="Widget.JmFit.Button.Segment" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textAllCaps">false</item>
