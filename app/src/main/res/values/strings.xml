@@ -1,5 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Jm Fit App</string>
+
+    <string name="titulo_productos">Productos y suplementos</string>
+    <string name="subtitulo_productos">Consulta y gestiona los productos y suplementos disponibles para tus clientes.</string>
+
+    <string name="agregar_producto">Añadir producto o suplemento</string>
+    <string name="filtrar_por_estado">Filtrar productos</string>
+
+    <string name="todos">Todos</string>
+    <string name="activos">Activos</string>
+    <string name="inactivos">Inactivos</string>
+
+    <string name="buscar_producto">Buscar por nombre o marca</string>
+
+    <string name="objetivo_label">Objetivo</string>
+    <string name="marca_label">Marca</string>
+    <string name="presentacion_label">Presentación</string>
+    <string name="precio_label">Precio</string>
+
+    <string name="estado_activo">Activo</string>
+    <string name="estado_inactivo">Inactivo</string>
+
+    <string name="modal_titulo">Crear producto</string>
+    <string name="modal_descripcion">Completa los datos para añadir un producto a tu catálogo.</string>
+
+    <string name="modal_editar">Editar producto</string>
+    <string name="modal_editar_descripcion">Modifica los datos del producto seleccionado.</string>
+
+    <string name="nombre_producto_requerido">Nombre del producto *</string>
+    <string name="marca_requerida">Marca *</string>
+    <string name="precio_requerido">Precio *</string>
+    <string name="objetivo_requerido">Objetivo *</string>
+    <string name="presentacion_requerida">Presentación *</string>
+
+    <string name="hint_nombre">Ej. Proteína whey</string>
+    <string name="hint_marca">Ej. NutriSport</string>
+    <string name="hint_precio">0,00</string>
+    <string name="hint_objetivo">Ej. Recuperación muscular</string>
+    <string name="hint_presentacion">Ej. 900 g - Vainilla</string>
+
+    <string name="activo">Activo</string>
+    <string name="activo_ayuda">Visible para tus clientes al crearlo.</string>
+
+    <string name="campos_obligatorios">* Campos obligatorios</string>
+
+    <string name="cancelar">Cancelar</string>
+    <string name="crear_producto">Crear producto</string>
+    <string name="guardar_cambios">Guardar cambios</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="aceptar">Aceptar</string>
+
+    <string name="ver_producto">Visualizar producto</string>
+    <string name="editar_producto">Editar producto</string>
+    <string name="activar_producto">Activar producto</string>
+    <string name="desactivar_producto">Desactivar producto</string>
+
+    <string name="error_campos_obligatorios">Completa todos los campos obligatorios.</string>
+    <string name="error_precio">Ingresa un precio válido mayor que cero.</string>
+
+    <string name="producto_creado">Producto agregado correctamente.</string>
+    <string name="producto_actualizado">Producto actualizado correctamente.</string>
+
+    <string name="producto_activado">Producto activado correctamente.</string>
+    <string name="producto_desactivado">Producto desactivado correctamente.</string>
+
+    <string name="error_guardar">No se pudo guardar el producto.</string>
+    <string name="error_actualizar">No se pudo actualizar el producto.</string>
+    <string name="error_consultar">No se pudieron consultar los productos.</string>
+
+    <string name="sin_productos">No hay productos que coincidan con tu búsqueda.</string>
+
+    <string name="confirmar_activar">¿Deseas activar este producto?</string>
+    <string name="confirmar_desactivar">¿Deseas desactivar este producto?</string>
+
+    <string name="producto_detalles">Detalles del producto</string>
+    <string name="estado_label">Estado</string>
 
     <!-- Mensajes comunes -->
     <string name="error_campo_obligatorio">Este campo es obligatorio</string>

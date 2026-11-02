@@ -1,13 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Esquinas casi rectas, como en el diseño -->
+    <!-- ESTILOS DEL MÓDULO DE PRODUCTOS -->
+
+    <style name="LabelProducto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gris</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="ValorProducto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="LabelCampo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CampoFormulario">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">@drawable/bg_campo</item>
+        <item name="android:paddingStart">11dp</item>
+        <item name="android:paddingEnd">11dp</item>
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textColorHint">@color/gris_hint</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="BotonAccion">
+        <item name="android:layout_width">42dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">9dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="tint">@color/texto</item>
+    </style>
+
+    <style name="BotonNaranja" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/naranja</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <!-- ESTILOS GENERALES JM FIT -->
+
     <style name="ShapeAppearance.JmFit.Small" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">4dp</item>
     </style>
 
-    <!-- Botón principal (relleno naranja-rojo) -->
     <style name="Widget.JmFit.Button" parent="Widget.Material3.Button">
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">15sp</item>
@@ -17,7 +72,6 @@
         <item name="shapeAppearance">@style/ShapeAppearance.JmFit.Small</item>
     </style>
 
-    <!-- Botón secundario (borde) -->
     <style name="Widget.JmFit.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">15sp</item>
@@ -27,14 +81,12 @@
         <item name="shapeAppearance">@style/ShapeAppearance.JmFit.Small</item>
     </style>
 
-    <!-- Botón de texto (enlaces) -->
     <style name="Widget.JmFit.Button.Text" parent="Widget.Material3.Button.TextButton">
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/jmfit_primary</item>
     </style>
 
-    <!-- Campos de texto: relleno gris, borde fino y esquinas casi rectas -->
     <style name="Widget.JmFit.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
         <item name="boxBackgroundColor">@color/jmfit_field</item>
         <item name="boxStrokeColor">@color/jmfit_box_stroke</item>
@@ -45,12 +97,10 @@
         <item name="hintEnabled">false</item>
     </style>
 
-    <!-- Campo con lista desplegable (objetivo, nivel, día, ejercicio, cliente) -->
     <style name="Widget.JmFit.TextInputLayout.Dropdown" parent="Widget.JmFit.TextInputLayout">
         <item name="endIconMode">dropdown_menu</item>
     </style>
 
-    <!-- Botón de pestaña segmentada (Estándar | Mis personalizadas) -->
     <style name="Widget.JmFit.Button.Segment" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">13sp</item>
@@ -60,12 +110,10 @@
         <item name="shapeAppearance">@style/ShapeAppearance.JmFit.Small</item>
     </style>
 
-    <!-- Etiqueta de estado (Activa / Inhabilitada) -->
     <style name="TextAppearance.JmFit.Chip" parent="TextAppearance.Material3.LabelSmall">
         <item name="android:textStyle">bold</item>
     </style>
 
-    <!-- Textos reutilizables -->
     <style name="TextAppearance.JmFit.Title" parent="TextAppearance.Material3.HeadlineMedium">
         <item name="android:textColor">@color/jmfit_text</item>
         <item name="android:textStyle">bold</item>
@@ -79,7 +127,6 @@
         <item name="android:textColor">@color/jmfit_text_secondary</item>
     </style>
 
-    <!-- Barra inferior del entrenador: solo íconos, fondo blanco y marca gris en la pestaña activa -->
     <style name="Widget.JmFit.BottomNav" parent="Widget.Material3.BottomNavigationView">
         <item name="labelVisibilityMode">unlabeled</item>
         <item name="itemIconTint">@color/jmfit_text</item>
@@ -94,4 +141,5 @@
     <style name="Widget.JmFit.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/jmfit_field</item>
     </style>
+
 </resources>
