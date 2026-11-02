@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Subgrafo del CLIENTE INTERNO (Home, Workout, Profile, INT-01 a INT-04). Pantalla provisional.  -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_intern" app:startDestination="@id/internHomeFragment">
+    <fragment android:id="@+id/internHomeFragment" android:name="com.forcetech.jmfitapp.ui.common.RolePlaceholderFragment" android:label="@string/placeholder_titulo_intern"/>
+</navigation>

@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">Jm Fit App</string>
+
+    <!-- Mensajes comunes -->
+    <string name="error_campo_obligatorio">Este campo es obligatorio</string>
+
+    <!-- Login (HU-1, HU-26 y HU-49 del backlog, adaptadas a móvil) -->
+    <string name="login_marca">JM FIT</string>
+    <string name="login_titulo">Bienvenido</string>
+    <string name="login_subtitulo">Inicia sesión para continuar.</string>
+    <string name="login_usuario_label">Usuario</string>
+    <string name="login_usuario_hint">Tu usuario</string>
+    <string name="login_password_label">Contraseña</string>
+    <string name="login_password_hint">Tu contraseña</string>
+    <string name="login_boton">Iniciar sesión</string>
+    <string name="login_boton_cargando">Iniciando sesión…</string>
+    <string name="login_ver_catalogo">Ver catálogo de suplementos</string>
+    <string name="login_error_credenciales">Usuario o contraseña incorrectos</string>
+    <string name="login_error_inhabilitado">Cuenta inhabilitada, comuníquese con un administrador</string>
+    <string name="login_error_bloqueado">Demasiados intentos. Inténtalo de nuevo en %1$d min.</string>
+    <string name="login_error_inesperado">No fue posible iniciar sesión. Inténtalo nuevamente.</string>
+
+    <!-- Pantallas provisionales por rol (las reemplaza cada responsable) -->
+    <string name="placeholder_pendiente">Pantalla pendiente de implementar por el responsable de este rol.</string>
+    <string name="placeholder_sesion_de">Sesión: %1$s</string>
+    <string name="placeholder_cerrar_sesion">Cerrar sesión</string>
+    <string name="placeholder_volver_login">Volver al inicio de sesión</string>
+    <string name="placeholder_titulo_entrenador">Entrenador · Rutinas</string>
+    <string name="placeholder_titulo_admin">Administrador · Inicio</string>
+    <string name="placeholder_titulo_intern">Cliente interno · Home</string>
+    <string name="placeholder_titulo_store">Tienda · Catálogo</string>
 </resources>
