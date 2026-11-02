@@ -1,5 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores del módulo de productos -->
+    <color name="naranja">#F04424</color>
+    <color name="naranja_oscuro">#D93419</color>
+    <color name="texto">#222222</color>
+    <color name="gris">#777777</color>
+    <color name="gris_hint">#999999</color>
+    <color name="fondo">#FAFAFA</color>
+    <color name="gris_campo">#F4F4F4</color>
+    <color name="borde">#E0E0E0</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="verde">#16834A</color>
+    <color name="fondo_verde">#E8F5EC</color>
+    <color name="fondo_inactivo">#EEEEEE</color>
+
+    <!-- Colores generales de JM Fit -->
+    <color name="jmfit_primary">#FFE8401B</color>
+    <color name="jmfit_primary_container">#FFFDE6DF</color>
+    <color name="jmfit_field">#FFEEEEEE</color>
+    <color name="jmfit_outline">#FFD6D6D6</color>
+    <color name="jmfit_text">#FF141414</color>
+    <color name="jmfit_text_secondary">#FF6A6A6A</color>
+    <color name="jmfit_error">#FFC62828</color>
+    <color name="jmfit_error_container">#FFFDECEA</color>
 </resources>
