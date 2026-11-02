@@ -16,6 +16,9 @@ import com.forcetech.jmfitapp.JmFitApplication
 import com.forcetech.jmfitapp.R
 import com.forcetech.jmfitapp.databinding.FragmentLoginBinding
 import kotlinx.coroutines.launch
+import android.content.Intent
+import com.forcetech.jmfitapp.ui.ProductoActivity
+
 
 /**
  * Pantalla de inicio de sesión única para todos los roles. Según el rol de la cuenta, redirige al
@@ -38,8 +41,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         _binding = FragmentLoginBinding.bind(view)
 
         // Si ya hay una sesión activa, se entra directo al inicio del rol.
+        // Si ya hay una sesión activa, se entra directo al inicio del rol.
         val sesion = appContainer.sessionManager.sesionActual()
         val destinoSesion = RolRouter.graphIdFor(sesion?.rolCodigo)
+
+        if (destinoSesion == R.id.nav_admin) {
+            startActivity(Intent(requireContext(), ProductoActivity::class.java))
+            requireActivity().finish()
+            return
+        }
+
         if (destinoSesion != null) {
             irA(destinoSesion)
             return
@@ -63,7 +74,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch { viewModel.uiState.collect { render(it) } }
-                launch { viewModel.destino.collect { irA(it) } }
+                launch {
+                    viewModel.destino.collect { destino ->
+                        if (destino == R.id.nav_admin) {
+                            startActivity(
+                                Intent(requireContext(), ProductoActivity::class.java)
+                            )
+                            requireActivity().finish()
+                        } else {
+                            irA(destino)
+                        }
+                    }
+                }
             }
         }
     }
