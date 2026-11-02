@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="LabelProducto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gris</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="ValorProducto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="LabelCampo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CampoFormulario">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">@drawable/bg_campo</item>
+        <item name="android:paddingStart">11dp</item>
+        <item name="android:paddingEnd">11dp</item>
+        <item name="android:textColor">@color/texto</item>
+        <item name="android:textColorHint">@color/gris_hint</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="BotonAccion">
+        <item name="android:layout_width">42dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">9dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="tint">@color/texto</item>
+    </style>
+
+    <style name="BotonNaranja" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/naranja</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+</resources>
