@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- ESTILOS DEL MÓDULO DE PRODUCTOS -->
+
     <style name="LabelProducto">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -52,6 +54,92 @@
         <item name="cornerRadius">12dp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:elevation">4dp</item>
+    </style>
+
+    <!-- ESTILOS GENERALES JM FIT -->
+
+    <style name="ShapeAppearance.JmFit.Small" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="Widget.JmFit.Button" parent="Widget.Material3.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="backgroundTint">@color/jmfit_primary</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.JmFit.Small</item>
+    </style>
+
+    <style name="Widget.JmFit.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="strokeColor">@color/jmfit_outline</item>
+        <item name="android:textColor">@color/jmfit_text</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.JmFit.Small</item>
+    </style>
+
+    <style name="Widget.JmFit.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/jmfit_primary</item>
+    </style>
+
+    <style name="Widget.JmFit.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/jmfit_field</item>
+        <item name="boxStrokeColor">@color/jmfit_box_stroke</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <style name="Widget.JmFit.TextInputLayout.Dropdown" parent="Widget.JmFit.TextInputLayout">
+        <item name="endIconMode">dropdown_menu</item>
+    </style>
+
+    <style name="Widget.JmFit.Button.Segment" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/jmfit_segment_text</item>
+        <item name="backgroundTint">@color/jmfit_segment_bg</item>
+        <item name="strokeColor">@color/jmfit_outline</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.JmFit.Small</item>
+    </style>
+
+    <style name="TextAppearance.JmFit.Chip" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.JmFit.Title" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/jmfit_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.JmFit.Subtitle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/jmfit_text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.JmFit.FieldLabel" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/jmfit_text_secondary</item>
+    </style>
+
+    <style name="Widget.JmFit.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="itemIconTint">@color/jmfit_text</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.JmFit.BottomNav.Indicator</item>
+        <item name="android:background">@color/white</item>
+        <item name="elevation">0dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="itemPaddingTop">6dp</item>
+        <item name="itemPaddingBottom">6dp</item>
+    </style>
+
+    <style name="Widget.JmFit.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/jmfit_field</item>
     </style>
 
 </resources>

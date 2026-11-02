@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_divider" />
+
+    <TextView
+        android:id="@+id/tvEjercicioNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/jmfit_text"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="Press inclinado con mancuernas" />
+
+    <TextView
+        android:id="@+id/tvEjercicioDatos"
+        style="@style/TextAppearance.JmFit.Subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textSize="13sp"
+        tools:text="4 series × 10 reps · 18 kg · Descanso 60 s" />
+</LinearLayout>

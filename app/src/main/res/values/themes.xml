@@ -1,8 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.JmFitApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Tema base de JM FIT. El diseño es solo claro, por eso no se usa DayNight. -->
+    <style name="Base.Theme.JmFitApp" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/jmfit_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/jmfit_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/jmfit_primary</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/jmfit_text</item>
+        <item name="colorOnSurfaceVariant">@color/jmfit_text_secondary</item>
+        <item name="colorOutline">@color/jmfit_outline</item>
+        <item name="colorError">@color/jmfit_error</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="materialButtonStyle">@style/Widget.JmFit.Button</item>
+        <item name="textInputStyle">@style/Widget.JmFit.TextInputLayout</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.JmFit.Small</item>
     </style>
 
     <style name="Theme.JmFitApp" parent="Base.Theme.JmFitApp" />

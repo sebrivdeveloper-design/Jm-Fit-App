@@ -78,4 +78,150 @@
     <string name="producto_detalles">Detalles del producto</string>
     <string name="estado_label">Estado</string>
 
+    <!-- Mensajes comunes -->
+    <string name="error_campo_obligatorio">Este campo es obligatorio</string>
+
+    <!-- Login (HU-1, HU-26 y HU-49 del backlog, adaptadas a móvil) -->
+    <string name="login_marca">JM FIT</string>
+    <string name="login_titulo">Bienvenido</string>
+    <string name="login_subtitulo">Inicia sesión para continuar.</string>
+    <string name="login_usuario_label">Usuario</string>
+    <string name="login_usuario_hint">Tu usuario</string>
+    <string name="login_password_label">Contraseña</string>
+    <string name="login_password_hint">Tu contraseña</string>
+    <string name="login_boton">Iniciar sesión</string>
+    <string name="login_boton_cargando">Iniciando sesión…</string>
+    <string name="login_ver_catalogo">Ver catálogo de suplementos</string>
+    <string name="login_error_credenciales">Usuario o contraseña incorrectos</string>
+    <string name="login_error_inhabilitado">Cuenta inhabilitada, comuníquese con un administrador</string>
+    <string name="login_error_bloqueado">Demasiados intentos. Inténtalo de nuevo en %1$d min.</string>
+    <string name="login_error_inesperado">No fue posible iniciar sesión. Inténtalo nuevamente.</string>
+
+    <!-- Rutinas del entrenador (ENT-6 y ENT-7) -->
+    <string name="rutinas_seccion">Rutinas</string>
+    <string name="rutinas_titulo">Rutinas</string>
+    <string name="rutinas_subtitulo">Consulta las rutinas estándar y crea rutinas personalizadas para un cliente específico.</string>
+    <string name="rutinas_crear_personalizada">Crear rutina personalizada</string>
+    <string name="rutinas_tab_estandar">Estándar</string>
+    <string name="rutinas_tab_personalizadas">Mis personalizadas</string>
+    <string name="rutinas_buscar_hint">Buscar por nombre, objetivo, nivel o cliente</string>
+    <string name="rutinas_vacio_estandar">No hay rutinas estándar disponibles.</string>
+    <string name="rutinas_vacio_personalizadas">Aún no tienes rutinas personalizadas. Crea la primera con el botón de arriba.</string>
+    <string name="rutinas_sin_resultados">No se encontraron rutinas con los criterios ingresados.</string>
+    <string name="rutinas_label_objetivo">Objetivo</string>
+    <string name="rutinas_label_nivel">Nivel</string>
+    <string name="rutinas_label_ejercicios">Ejercicios</string>
+    <string name="rutinas_label_asignada">Asignada a</string>
+    <string name="rutinas_sin_asignar">Sin asignar</string>
+    <string name="rutinas_sin_dato">—</string>
+    <string name="rutinas_estado_activa">Activa</string>
+    <string name="rutinas_estado_inhabilitada">Inhabilitada</string>
+    <string name="rutinas_cd_ver">Ver detalle</string>
+    <string name="rutinas_cd_editar">Editar rutina</string>
+    <string name="rutinas_cd_inhabilitar">Inhabilitar rutina</string>
+    <string name="rutinas_cd_reactivar">Reactivar rutina</string>
+    <string name="dialogo_aceptar">Aceptar</string>
+    <string name="dialogo_cancelar">Cancelar</string>
+    <string name="rutinas_inhabilitar_titulo">Inhabilitar rutina</string>
+    <string name="rutinas_inhabilitar_mensaje">¿Deseas inhabilitar la rutina «%1$s»? Si está asignada a un cliente, su asignación se finalizará. La rutina seguirá registrada y podrás consultarla.</string>
+    <string name="rutinas_reactivar_titulo">Reactivar rutina</string>
+    <string name="rutinas_reactivar_mensaje">¿Deseas reactivar la rutina «%1$s»? Quedará activa y sin cliente asignado.</string>
+    <string name="rutinas_inhabilitada_ok">Rutina inhabilitada correctamente.</string>
+    <string name="rutinas_reactivada_ok">Rutina reactivada correctamente.</string>
+    <string name="rutinas_error_estado">No fue posible actualizar la rutina. Inténtalo nuevamente.</string>
+
+    <!-- Detalle de rutina (ENT-6) -->
+    <string name="detalle_label">Detalle de rutina</string>
+    <string name="detalle_volver">Volver a Rutinas</string>
+    <string name="detalle_tipo_personalizada">Personalizada</string>
+    <string name="detalle_notas">Notas</string>
+    <string name="detalle_sin_ejercicios">Esta rutina aún no tiene ejercicios.</string>
+    <string name="detalle_no_disponible">La rutina que buscas no existe o no está disponible.</string>
+    <string name="detalle_error_cargar">No fue posible cargar la rutina. Inténtalo nuevamente.</string>
+    <string name="detalle_reintentar">Reintentar</string>
+    <string name="ejercicio_series_reps">%1$s series × %2$s reps</string>
+    <string name="ejercicio_peso">%1$s kg</string>
+    <string name="ejercicio_descanso">Descanso %1$d s</string>
+
+    <!-- Formulario de rutina personalizada (ENT-5 crear / ENT-8 editar) -->
+    <string name="form_titulo_crear">Crear rutina personalizada</string>
+    <string name="form_subtitulo_crear">Diseña una rutina para un cliente específico. Se asignará al guardarla.</string>
+    <string name="form_titulo_editar">Editar rutina personalizada</string>
+    <string name="form_subtitulo_editar">Modifica los datos, los ejercicios o las notas de la rutina.</string>
+    <string name="form_seccion_1_numero">01</string>
+    <string name="form_seccion_1">Datos de la rutina</string>
+    <string name="form_seccion_2_numero">02</string>
+    <string name="form_seccion_2">Ejercicios y configuración</string>
+    <string name="form_seccion_3_numero">03</string>
+    <string name="form_seccion_3">Notas</string>
+    <string name="form_label_cliente">Cliente *</string>
+    <string name="form_label_nombre">Nombre de la rutina *</string>
+    <string name="form_label_objetivo">Objetivo *</string>
+    <string name="form_label_nivel">Nivel *</string>
+    <string name="form_label_dia">Día de la semana *</string>
+    <string name="form_label_ejercicio">Ejercicio *</string>
+    <string name="form_label_series">Series *</string>
+    <string name="form_label_repeticiones">Repeticiones *</string>
+    <string name="form_label_peso">Peso (kg)</string>
+    <string name="form_hint_cliente">Buscar cliente por nombre</string>
+    <string name="form_hint_nombre">Ej. Hipertrofia — Fase 1</string>
+    <string name="form_hint_seleccion">Selecciona</string>
+    <string name="form_hint_ejercicio">Selecciona un ejercicio</string>
+    <string name="form_hint_series">4</string>
+    <string name="form_hint_repeticiones">10 ó 8-12</string>
+    <string name="form_hint_peso">Opcional</string>
+    <string name="form_hint_notas">Indicaciones adicionales para el cliente (opcional)</string>
+    <string name="form_agregar_ejercicio">Agregar ejercicio</string>
+    <string name="form_actualizar_ejercicio">Actualizar ejercicio</string>
+    <string name="form_cancelar_edicion_ejercicio">Cancelar edición del ejercicio</string>
+    <string name="form_sin_ejercicios">Aún no has agregado ejercicios.</string>
+    <string name="form_contador">%1$d agregados</string>
+    <string name="form_guardar_rutina">Guardar rutina</string>
+    <string name="form_guardar_cambios">Guardar cambios</string>
+    <string name="form_cd_editar_ejercicio">Modificar ejercicio</string>
+    <string name="form_cd_quitar">Quitar ejercicio</string>
+    <string name="form_linea_datos">%1$d series × %2$s reps</string>
+    <string name="form_linea_datos_peso">%1$d series × %2$s reps · %3$s kg</string>
+
+    <!-- Validaciones -->
+    <string name="form_error_requerido">Este campo es obligatorio.</string>
+    <string name="form_error_cliente_lista">Selecciona un cliente de la lista.</string>
+    <string name="form_error_series">Ingresa un número de series entre 1 y 20.</string>
+    <string name="form_error_repeticiones">Ingresa las repeticiones (por ejemplo 10 u 8-12).</string>
+    <string name="form_error_peso">El peso debe ser un número mayor que 0.</string>
+    <string name="form_error_sin_ejercicios">Agrega al menos un ejercicio a la rutina.</string>
+    <string name="form_nombre_duplicado">Ya existe una rutina tuya con este nombre.</string>
+    <string name="form_ejercicio_repetido">Este ejercicio ya está agregado en ese día.</string>
+    <string name="form_sin_clientes">No tienes clientes disponibles para asignar.</string>
+
+    <!-- Confirmación y resultados -->
+    <string name="form_confirmar_crear_titulo">Guardar rutina</string>
+    <string name="form_confirmar_crear_mensaje">¿Deseas guardar la rutina «%1$s» y asignarla a %2$s?</string>
+    <string name="form_confirmar_crear_reemplazo">\n\nLa rutina activa actual de este cliente («%1$s») se finalizará.</string>
+    <string name="form_confirmar_editar_titulo">Guardar cambios</string>
+    <string name="form_confirmar_editar_mensaje">¿Deseas guardar los cambios de la rutina «%1$s»?</string>
+    <string name="form_confirmar_editar_cliente">\n\nTambién se asignará a %1$s.</string>
+    <string name="form_creada_ok">Rutina guardada y asignada correctamente.</string>
+    <string name="form_actualizada_ok">Rutina actualizada correctamente.</string>
+    <string name="form_cliente_invalido">El cliente seleccionado ya no está disponible. Elige otro.</string>
+    <string name="form_no_disponible">La rutina no existe, está inhabilitada o no te pertenece.</string>
+    <string name="form_error_guardar">No fue posible guardar la rutina. Inténtalo nuevamente.</string>
+    <string name="form_error_cargar">No fue posible cargar los datos del formulario. Inténtalo nuevamente.</string>
+
+    <!-- Barra inferior del entrenador (nombres editables aquí) -->
+    <string name="trainer_tab_inicio">Inicio</string>
+    <string name="trainer_tab_clientes">Mis clientes</string>
+    <string name="trainer_tab_rutinas">Rutinas</string>
+    <string name="trainer_tab_catalogo">Catálogo</string>
+    <string name="trainer_tab_pendiente">Pantalla pendiente: no forma parte de las HU de esta entrega.</string>
+
+    <!-- Pantallas provisionales por rol (las reemplaza cada responsable) -->
+    <string name="placeholder_pendiente">Pantalla pendiente de implementar por el responsable de este rol.</string>
+    <string name="placeholder_sesion_de">Sesión: %1$s</string>
+    <string name="placeholder_cerrar_sesion">Cerrar sesión</string>
+    <string name="placeholder_volver_login">Volver al inicio de sesión</string>
+    <string name="placeholder_titulo_entrenador">Entrenador · Rutinas</string>
+    <string name="placeholder_titulo_admin">Administrador · Inicio</string>
+    <string name="placeholder_titulo_intern">Cliente interno · Home</string>
+    <string name="placeholder_titulo_store">Tienda · Catálogo</string>
 </resources>
