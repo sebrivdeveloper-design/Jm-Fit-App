@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Subgrafo del ENTRENADOR (ENT-5 a ENT-8). Responsable: Sebastián.  -->
-<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_trainer" app:startDestination="@id/trainerRutinasFragment">
-    <fragment android:id="@+id/trainerRutinasFragment" android:name="com.forcetech.jmfitapp.ui.common.RolePlaceholderFragment" android:label="@string/placeholder_titulo_entrenador"/>
+<!-- Subgrafo del ENTRENADOR (ENT-5 a ENT-8). Responsable: Sebastián. -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_trainer"
+    app:startDestination="@id/trainerRutinasFragment">
+
+    <!-- ENT-6 y ENT-7: listado, inhabilitar y reactivar -->
+    <fragment
+        android:id="@+id/trainerRutinasFragment"
+        android:name="com.forcetech.jmfitapp.ui.trainer.RutinasFragment"
+        android:label="@string/rutinas_titulo" />
+
+    <!-- ENT-6: detalle de una rutina. Recibe el id por argumento. -->
+    <fragment
+        android:id="@+id/trainerRutinaDetalleFragment"
+        android:name="com.forcetech.jmfitapp.ui.trainer.RutinaDetalleFragment"
+        android:label="@string/detalle_label">
+        <argument
+            android:name="rutinaId"
+            app:argType="long" />
+    </fragment>
+
+    <!-- ENT-5 (crear) y ENT-8 (editar): mismo formulario. rutinaId = 0 crea; mayor que 0 edita. -->
+    <fragment
+        android:id="@+id/trainerRutinaFormFragment"
+        android:name="com.forcetech.jmfitapp.ui.trainer.RutinaFormFragment"
+        android:label="@string/form_titulo_crear">
+        <argument
+            android:name="rutinaId"
+            android:defaultValue="0L"
+            app:argType="long" />
+    </fragment>
 </navigation>

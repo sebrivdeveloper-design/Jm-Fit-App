@@ -5,6 +5,7 @@ import android.util.Log
 import com.forcetech.jmfitapp.data.database.AppDatabase
 import com.forcetech.jmfitapp.data.database.DatabaseSeeder
 import com.forcetech.jmfitapp.data.repository.AuthRepository
+import com.forcetech.jmfitapp.data.repository.RutinaRepository
 import com.forcetech.jmfitapp.data.session.LoginAttemptStore
 import com.forcetech.jmfitapp.data.session.SessionManager
 import kotlinx.coroutines.CoroutineScope
@@ -43,6 +44,11 @@ class AppContainer(context: Context) {
         rolDao = database.rolDao(),
         sessionManager = sessionManager,
         intentos = LoginAttemptStore(appContext),
+        esperarBaseLista = ::esperarBaseLista
+    )
+
+    val rutinaRepository = RutinaRepository(
+        db = database,
         esperarBaseLista = ::esperarBaseLista
     )
 }
