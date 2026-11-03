@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos de las pantallas del CLIENTE INTERNO (Home, Workout, Profile). Prefijo cli_. -->
+<resources>
+    <!-- Barra inferior -->
+    <string name="cli_tab_inicio">Inicio</string>
+    <string name="cli_tab_entreno">Entreno</string>
+    <string name="cli_tab_progreso">Progreso</string>
+    <string name="cli_tab_chat">Chat</string>
+    <string name="cli_tab_perfil">Perfil</string>
+
+    <!-- Etiquetas de los destinos en nav_intern.xml -->
+    <string name="cli_label_home">Inicio del cliente</string>
+    <string name="cli_label_workout">Entrenamiento del cliente</string>
+    <string name="cli_label_profile">Perfil del cliente</string>
+
+    <string name="cli_avatar_desc">Foto del cliente</string>
+    <string name="cli_avatar_entrenador_desc">Foto del entrenador</string>
+
+    <!-- Home -->
+    <string name="cli_saludo">Hola, %1$s</string>
+    <string name="cli_entreno_de_hoy">Entrenamiento de hoy</string>
+    <string name="cli_entreno_detalle">%1$d ejercicios · unos %2$d minutos</string>
+    <string name="cli_iniciar_entreno">Iniciar entrenamiento</string>
+    <string name="cli_esta_semana">Esta semana</string>
+    <string name="cli_stat_entrenos">Entrenos</string>
+    <string name="cli_stat_peso">Peso</string>
+    <string name="cli_stat_racha">Racha</string>
+    <string name="cli_fotos_progreso">Fotos de progreso</string>
+    <string name="cli_ver_todo">Ver todo</string>
+    <string name="cli_agregar_foto_desc">Agregar foto (no disponible)</string>
+    <string name="cli_suplementos">Suplementos</string>
+    <string name="cli_suplementos_mensaje">¿Necesitas tu próxima Whey Pro?</string>
+
+    <!-- Workout -->
+    <string name="cli_volver_desc">Volver al inicio</string>
+    <string name="cli_dia_programa">Día %1$d de %2$d</string>
+    <string name="cli_grupo_semana">%1$s · Semana %2$d</string>
+    <string name="cli_series">Series</string>
+    <string name="cli_reps">Reps</string>
+    <string name="cli_peso">Peso</string>
+    <string name="cli_descanso">Descanso</string>
+    <string name="cli_casilla_desc">Casilla de verificación (solo visual)</string>
+
+    <!-- Profile -->
+    <string name="cli_cliente_desde">Cliente desde %1$s · %2$s</string>
+    <string name="cli_programa_actual">Programa actual</string>
+    <string name="cli_asignado_por">Asignado por %1$s · Semana %2$d de %3$d</string>
+    <string name="cli_sesiones_semana">Sesiones/sem</string>
+    <string name="cli_inicio">Inicio</string>
+    <string name="cli_proximo_control">Próximo control</string>
+    <string name="cli_cuerpo_objetivo">Cuerpo y objetivo</string>
+    <string name="cli_edad">Edad</string>
+    <string name="cli_estatura">Estatura</string>
+    <string name="cli_peso_actual">Peso actual</string>
+    <string name="cli_peso_objetivo">Peso objetivo</string>
+    <string name="cli_notas_de">Notas de %1$s</string>
+    <string name="cli_historial">Historial de entrenamientos</string>
+    <string name="cli_pedidos">Mis pedidos</string>
+    <string name="cli_notificaciones">Notificaciones</string>
+    <string name="cli_configuracion">Configuración de la cuenta</string>
+    <string name="cli_cerrar_sesion">Cerrar sesión</string>
+</resources>

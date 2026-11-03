@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Colores de las pantallas del CLIENTE INTERNO (Home, Workout, Profile). Complementan colors.xml. -->
+<resources>
+    <color name="cli_fondo">#FFF4F4F4</color>
+    <color name="cli_tarjeta">#FFEAEAEA</color>
+    <color name="cli_oscuro">#FF1E1E1E</color>
+    <color name="cli_oscuro_pista">#FF4A4A4A</color>
+    <color name="cli_texto_sobre_oscuro">#FFBDBDBD</color>
+    <color name="cli_rojo_suave">#FFFF8A65</color>
+    <color name="cli_rojo_texto">#FFB3261E</color>
+</resources>
