@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Una tarjeta de producto dentro del carrito -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/jmfit_surface"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/jmfit_card_stroke"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivProducto"
+            android:layout_width="72dp"
+            android:layout_height="84dp"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_producto_placeholder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.JmFit.Producto" />
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/jmfit_text"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/btnEliminar"
+            app:layout_constraintStart_toEndOf="@id/ivProducto"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Whey isolate" />
+
+        <ImageButton
+            android:id="@+id/btnEliminar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/jmfit_text_secondary"
+            tools:contentDescription="Eliminar" />
+
+        <TextView
+            android:id="@+id/tvPresentacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
+            android:textColor="@color/jmfit_text_secondary"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@id/btnEliminar"
+            app:layout_constraintStart_toEndOf="@id/ivProducto"
+            app:layout_constraintTop_toBottomOf="@id/tvNombre"
+            tools:text="900 g · Vainilla" />
+
+        <TextView
+            android:id="@+id/tvPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/jmfit_text"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/ivProducto"
+            app:layout_constraintTop_toBottomOf="@id/tvPresentacion"
+            tools:text="$149.900" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barreraInferior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="ivProducto,tvPrecio" />
+
+        <TextView
+            android:id="@+id/tvDetalleUnidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/jmfit_text_secondary"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/stepper"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/stepper"
+            tools:text="1 unidad" />
+
+        <!-- Selector de cantidad: − 1 + -->
+        <LinearLayout
+            android:id="@+id/stepper"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_stepper"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barreraInferior">
+
+            <ImageButton
+                android:id="@+id/btnRestar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/carrito_cd_restar"
+                android:padding="10dp"
+                android:src="@drawable/ic_minus"
+                app:tint="@color/jmfit_text" />
+
+            <TextView
+                android:id="@+id/tvCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="28dp"
+                android:gravity="center"
+                android:textColor="@color/jmfit_text"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="1" />
+
+            <ImageButton
+                android:id="@+id/btnSumar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/carrito_cd_sumar"
+                android:padding="10dp"
+                android:src="@drawable/ic_add"
+                app:tint="@color/jmfit_text" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

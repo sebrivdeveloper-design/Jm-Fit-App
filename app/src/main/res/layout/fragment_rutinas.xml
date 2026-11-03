@@ -32,6 +32,17 @@
             tools:text="Domingo, 1 de noviembre de 2026" />
 
         <TextView
+            android:id="@+id/btnTema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:text="@string/tema_boton"
+            android:textColor="@color/jmfit_primary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/btnCerrarSesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

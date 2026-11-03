@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Colores del MODO OSCURO. Solo se redefinen los que cambian; el resto se toma de values/.
+     "white", "blanco" y "black" NO se cambian: se usan como texto sobre el naranja. -->
+<resources>
+    <!-- Módulo de productos -->
+    <color name="texto">#FFEDEDED</color>
+    <color name="gris">#FFA0A0A0</color>
+    <color name="gris_hint">#FF7A7A7A</color>
+    <color name="fondo">#FF121212</color>
+    <color name="gris_campo">#FF262626</color>
+    <color name="borde">#FF3A3A3A</color>
+    <color name="verde">#FF4CC38A</color>
+    <color name="fondo_verde">#FF173A28</color>
+    <color name="fondo_inactivo">#FF2C2C2C</color>
+
+    <!-- Generales JM Fit -->
+    <color name="jmfit_primary_container">#FF4A1E14</color>
+    <color name="jmfit_field">#FF262626</color>
+    <color name="jmfit_outline">#FF3D3D3D</color>
+    <color name="jmfit_text">#FFF2F2F2</color>
+    <color name="jmfit_text_secondary">#FFA8A8A8</color>
+    <color name="jmfit_error">#FFEF5350</color>
+    <color name="jmfit_error_container">#FF3B1A1A</color>
+
+    <!-- Carrito -->
+    <color name="jmfit_background">#FF121212</color>
+    <color name="jmfit_card_stroke">#FF2E2E2E</color>
+    <color name="jmfit_success">#FF5CC495</color>
+    <color name="jmfit_success_container">#FF17382A</color>
+
+    <!-- Superficies -->
+    <color name="jmfit_surface">#FF1A1A1A</color>
+    <color name="jmfit_vacio">#FF2C2C2C</color>
+
+    <!-- Cliente interno -->
+    <color name="cli_fondo">#FF121212</color>
+    <color name="cli_tarjeta">#FF262626</color>
+    <color name="cli_oscuro">#FF2C2C2C</color>
+    <color name="cli_oscuro_pista">#FF555555</color>
+    <color name="cli_rojo_texto">#FFFF8A80</color>
+</resources>

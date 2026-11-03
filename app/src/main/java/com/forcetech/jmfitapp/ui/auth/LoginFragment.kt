@@ -18,6 +18,7 @@ import com.forcetech.jmfitapp.databinding.FragmentLoginBinding
 import kotlinx.coroutines.launch
 import android.content.Intent
 import com.forcetech.jmfitapp.ui.ProductoActivity
+import com.forcetech.jmfitapp.ui.common.TemaApp
 
 
 /**
@@ -60,6 +61,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding.btnVerCatalogo.setOnClickListener {
             findNavController().navigate(R.id.nav_store)
         }
+        binding.btnTema.setOnClickListener { TemaApp.mostrarSelector(requireContext()) }
         binding.etPassword.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 enviar()

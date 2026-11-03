@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Videos de pruebas grabadas
+testing/videos/

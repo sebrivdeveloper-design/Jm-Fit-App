@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Subgrafo del CLIENTE INTERNO (Home, Workout, Profile, INT-01 a INT-04). Pantalla provisional.  -->
-<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_intern" app:startDestination="@id/internHomeFragment">
-    <fragment android:id="@+id/internHomeFragment" android:name="com.forcetech.jmfitapp.ui.common.RolePlaceholderFragment" android:label="@string/placeholder_titulo_intern"/>
+<!--
+    Subgrafo del CLIENTE INTERNO (HU Cliente: Home, Workout, Profile).
+    Los ids coinciden con los de menu_cliente.xml (barra inferior). internHomeFragment es el inicio del rol.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_intern"
+    app:startDestination="@id/internHomeFragment">
+
+    <!-- CA01: inicio del cliente -->
+    <fragment
+        android:id="@+id/internHomeFragment"
+        android:name="com.forcetech.jmfitapp.ui.intern.ClienteHomeFragment"
+        android:label="@string/cli_label_home" />
+
+    <!-- CA02: detalle del entrenamiento del día -->
+    <fragment
+        android:id="@+id/internWorkoutFragment"
+        android:name="com.forcetech.jmfitapp.ui.intern.ClienteWorkoutFragment"
+        android:label="@string/cli_label_workout" />
+
+    <!-- CA03: perfil del cliente -->
+    <fragment
+        android:id="@+id/internProfileFragment"
+        android:name="com.forcetech.jmfitapp.ui.intern.ClienteProfileFragment"
+        android:label="@string/cli_label_profile" />
 </navigation>

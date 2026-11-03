@@ -9,6 +9,7 @@ import com.forcetech.jmfitapp.model.Ejercicio
 import com.forcetech.jmfitapp.model.Entrenador
 import com.forcetech.jmfitapp.model.EstadoUsuario
 import com.forcetech.jmfitapp.model.GrupoMuscular
+import com.forcetech.jmfitapp.model.Producto
 import com.forcetech.jmfitapp.model.Rol
 import com.forcetech.jmfitapp.model.RolCodigo
 import com.forcetech.jmfitapp.model.Rutina
@@ -17,6 +18,7 @@ import com.forcetech.jmfitapp.model.RutinaDia
 import com.forcetech.jmfitapp.model.RutinaEjercicio
 import com.forcetech.jmfitapp.model.TipoRutina
 import com.forcetech.jmfitapp.model.Usuario
+import java.math.BigDecimal
 
 /**
  * Datos de ejemplo para poder probar la app sin backend. Se cargan una sola vez, cuando la base está vacía.
@@ -56,6 +58,10 @@ object DatabaseSeeder {
     private class DiaSeed(val dia: Int, val lineas: List<LineaSeed>)
 
     suspend fun seedIfNeeded(db: AppDatabase) {
+        CatalogoSeeder.sembrarSiHaceFalta(db)
+        // Respaldo: si el catálogo no cargó productos, se cargan los de ejemplo (nunca se duplican).
+        seedProductosSiVacio(db)
+
         if (db.rolDao().contar() > 0) return
 
         // El hash es costoso (PBKDF2), así que se calcula antes de abrir la transacción.
@@ -288,6 +294,54 @@ object DatabaseSeeder {
             rutinaDao.insertarAsignacion(
                 AsignacionRutina(clienteId = felipeId, rutinaId = recomposicionId, asignadoPorId = juanId)
             )
+        }
+    }
+
+    /** 7 productos de ejemplo para el módulo de productos del administrador (uno inactivo para probar el filtro). */
+    private suspend fun seedProductosSiVacio(db: AppDatabase) {
+        val productoDao = db.productoDao()
+        if (productoDao.contar() > 0) return
+
+        val productos = listOf(
+            Producto(
+                nombre = "Whey Protein Gold Standard", marca = "Optimum Nutrition",
+                precio = BigDecimal("289900"), objetivo = "Ganancia muscular",
+                presentacion = "Tarro 2 lb"
+            ),
+            Producto(
+                nombre = "Creatina Monohidratada", marca = "MuscleTech",
+                precio = BigDecimal("129900"), objetivo = "Fuerza y rendimiento",
+                presentacion = "Tarro 400 g"
+            ),
+            Producto(
+                nombre = "Pre-entreno C4 Original", marca = "Cellucor",
+                precio = BigDecimal("149900"), objetivo = "Energía pre-entreno",
+                presentacion = "Tarro 30 servicios"
+            ),
+            Producto(
+                nombre = "BCAA 2:1:1", marca = "Scivation Xtend",
+                precio = BigDecimal("119900"), objetivo = "Recuperación muscular",
+                presentacion = "Tarro 30 servicios"
+            ),
+            Producto(
+                nombre = "Serious Mass", marca = "Optimum Nutrition",
+                precio = BigDecimal("259900"), objetivo = "Aumento de peso",
+                presentacion = "Bolsa 6 lb"
+            ),
+            Producto(
+                nombre = "L-Carnitina Líquida", marca = "Nutrex",
+                precio = BigDecimal("89900"), objetivo = "Pérdida de grasa",
+                presentacion = "Botella 473 ml"
+            ),
+            Producto(
+                nombre = "Multivitamínico Animal Pak", marca = "Universal Nutrition",
+                precio = BigDecimal("179900"), objetivo = "Salud general",
+                presentacion = "Caja 44 sobres", activo = false
+            )
+        )
+
+        db.withTransaction {
+            productos.forEach { productoDao.guardarProductos(it) }
         }
     }
 }

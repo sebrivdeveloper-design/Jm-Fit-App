@@ -12,6 +12,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import com.forcetech.jmfitapp.data.repository.CarritoRepository
+import com.forcetech.jmfitapp.data.repository.CatalogoRepository
 
 /**
  * Contenedor de dependencias de la app (una sola instancia, creada en [JmFitApplication]).
@@ -49,6 +51,15 @@ class AppContainer(context: Context) {
 
     val rutinaRepository = RutinaRepository(
         db = database,
+        esperarBaseLista = ::esperarBaseLista
+    )
+
+    /** Carrito de la tienda (no necesita esperar los datos de ejemplo: es solo del dispositivo). */
+    val carritoRepository = CarritoRepository(database)
+
+    /** Catálogo y detalle de la tienda (lectura). Agregar al carrito se hace con [carritoRepository]. */
+    val catalogoRepository = CatalogoRepository(
+        catalogoDao = database.catalogoDao(),
         esperarBaseLista = ::esperarBaseLista
     )
 }

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- En modo claro los íconos de la barra de estado van oscuros -->
+    <bool name="jmfit_barra_estado_clara">true</bool>
+</resources>

@@ -25,4 +25,14 @@
     <color name="jmfit_text_secondary">#FF6A6A6A</color>
     <color name="jmfit_error">#FFC62828</color>
     <color name="jmfit_error_container">#FFFDECEA</color>
+
+    <!-- Carrito de compras -->
+    <color name="jmfit_background">#FFF4F7F5</color>
+    <color name="jmfit_card_stroke">#FFE3E8E4</color>
+    <color name="jmfit_success">#FF2F7D57</color>
+    <color name="jmfit_success_container">#FFE3F1E9</color>
+
+    <!-- Superficies que cambian con el tema (tarjetas, modales, barras) -->
+    <color name="jmfit_surface">#FFFFFFFF</color>
+    <color name="jmfit_vacio">#FFE6EBE7</color>
 </resources>

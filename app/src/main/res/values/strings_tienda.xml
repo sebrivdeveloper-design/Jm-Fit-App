@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tienda: catálogo y detalle del producto -->
+    <string name="tienda_marca">JM FIT</string>
+    <string name="tienda_titulo">Tienda</string>
+    <string name="tienda_titulo_catalogo">Tienda · Catálogo</string>
+    <string name="tienda_titulo_detalle">Producto</string>
+    <string name="tienda_buscar_hint">Buscar productos o marcas</string>
+    <string name="tienda_chip_todos">Todos</string>
+    <string name="tienda_lista_titulo">Productos</string>
+    <string name="tienda_agregar">Agregar al carrito</string>
+    <string name="tienda_agotado">Agotado</string>
+    <string name="tienda_estado_disponible">● Disponible</string>
+    <string name="tienda_estado_agotado">● Agotado</string>
+    <string name="tienda_calificacion">★ %1$s</string>
+    <string name="tienda_marca_categoria">%1$s · %2$s</string>
+    <string name="tienda_objetivo">Objetivo: %1$s</string>
+    <string name="tienda_beneficios">Beneficios</string>
+    <string name="tienda_vacio">No encontramos productos con esa búsqueda.</string>
+    <string name="tienda_error">No se pudo cargar la tienda. Inténtalo de nuevo.</string>
+    <string name="tienda_producto_no_encontrado">Este producto ya no está disponible.</string>
+    <string name="tienda_agregado">%1$s agregado al carrito</string>
+    <string name="tienda_ver_carrito">Ver carrito</string>
+    <string name="tienda_error_agregar">No se pudo agregar al carrito. Inténtalo de nuevo.</string>
+    <string name="tienda_cd_carrito">Ir al carrito</string>
+    <string name="tienda_volver">Volver</string>
+    <string name="tienda_disminuir">Disminuir cantidad</string>
+    <string name="tienda_aumentar">Aumentar cantidad</string>
+</resources>

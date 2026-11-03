@@ -6,13 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
+import com.forcetech.jmfitapp.data.dao.CarritoDao
+import com.forcetech.jmfitapp.data.dao.CatalogoDao
 import com.forcetech.jmfitapp.data.dao.ProductoDao
 import com.forcetech.jmfitapp.data.dao.EjercicioDao
 import com.forcetech.jmfitapp.data.dao.RolDao
 import com.forcetech.jmfitapp.data.dao.RutinaDao
 import com.forcetech.jmfitapp.data.dao.UsuarioDao
 
+import com.forcetech.jmfitapp.model.CarritoItem
+import com.forcetech.jmfitapp.model.CategoriaProducto
 import com.forcetech.jmfitapp.model.Producto
+import com.forcetech.jmfitapp.model.ProductoTienda
 import com.forcetech.jmfitapp.model.AsignacionEntrenador
 import com.forcetech.jmfitapp.model.AsignacionRutina
 import com.forcetech.jmfitapp.model.ClienteInterno
@@ -46,9 +51,16 @@ import com.forcetech.jmfitapp.model.Usuario
         AsignacionRutina::class,
 
         // Entidad de productos
-        Producto::class
+        Producto::class,
+
+        // Catálogo de la tienda del cliente (categorías y datos de presentación de cada producto)
+        CategoriaProducto::class,
+        ProductoTienda::class,
+
+        // Entidad del carrito
+        CarritoItem::class
     ],
-    version = 3,
+    version = 5,
     exportSchema = false
 )
 @TypeConverters(BigDecimalConverter::class)
@@ -57,11 +69,17 @@ abstract class AppDatabase : RoomDatabase() {
     // DAO de productos
     abstract fun productoDao(): ProductoDao
 
+    // DAO del catálogo de la tienda (lectura)
+    abstract fun catalogoDao(): CatalogoDao
+
     // DAO de usuarios y rutinas
     abstract fun rolDao(): RolDao
     abstract fun usuarioDao(): UsuarioDao
     abstract fun ejercicioDao(): EjercicioDao
     abstract fun rutinaDao(): RutinaDao
+
+    // DAO del carrito
+    abstract fun carritoDao(): CarritoDao
 
     companion object {
 
