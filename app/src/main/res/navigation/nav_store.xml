@@ -2,4 +2,6 @@
 <!--  Subgrafo de la TIENDA / CLIENTE EXTERNO (EXT-13 a EXT-20). No requiere sesión. Pantalla provisional.  -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_store" app:startDestination="@id/storeCatalogFragment">
     <fragment android:id="@+id/storeCatalogFragment" android:name="com.forcetech.jmfitapp.ui.common.RolePlaceholderFragment" android:label="@string/placeholder_titulo_store"/>
+    <!-- Carrito de compras. Desde el catálogo se abre con: findNavController().navigate(R.id.carritoFragment) -->
+    <fragment android:id="@+id/carritoFragment" android:name="com.forcetech.jmfitapp.ui.store.CarritoFragment" android:label="@string/carrito_titulo"/>
 </navigation>

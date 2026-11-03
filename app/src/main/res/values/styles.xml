@@ -94,4 +94,10 @@
     <style name="Widget.JmFit.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/jmfit_field</item>
     </style>
+
+    <!-- Carrito: imagen del producto con esquinas redondeadas -->
+    <style name="ShapeAppearanceOverlay.JmFit.Producto" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>

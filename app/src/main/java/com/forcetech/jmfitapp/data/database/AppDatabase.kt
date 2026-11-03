@@ -20,6 +20,8 @@ import com.forcetech.jmfitapp.model.RutinaBloque
 import com.forcetech.jmfitapp.model.RutinaDia
 import com.forcetech.jmfitapp.model.RutinaEjercicio
 import com.forcetech.jmfitapp.model.Usuario
+import com.forcetech.jmfitapp.data.dao.CarritoDao
+import com.forcetech.jmfitapp.model.CarritoItem
 
 /**
  * Clase principal de la base de datos de Room.
@@ -45,9 +47,10 @@ import com.forcetech.jmfitapp.model.Usuario
         RutinaDia::class,
         RutinaBloque::class,
         RutinaEjercicio::class,
-        AsignacionRutina::class
+        AsignacionRutina::class,
+        CarritoItem::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -59,6 +62,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun ejercicioDao(): EjercicioDao
 
     abstract fun rutinaDao(): RutinaDao
+
+    abstract fun carritoDao(): CarritoDao
 
     companion object {
         /**
