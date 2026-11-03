@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de un ejercicio en la pantalla Workout del cliente. La casilla es solo visual. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_cli_tarjeta"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvNombre"
+            style="@style/TextAppearance.JmFit.Cliente.Value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            tools:text="Press de banca con barra" />
+
+        <ImageView
+            android:id="@+id/ivCasilla"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_cli_casilla"
+            android:contentDescription="@string/cli_casilla_desc"
+            android:padding="7dp"
+            android:src="@drawable/ic_cli_check"
+            app:tint="@color/jmfit_text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.JmFit.Cliente.Overline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cli_series" />
+
+            <TextView
+                android:id="@+id/tvSeries"
+                style="@style/TextAppearance.JmFit.Cliente.Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.JmFit.Cliente.Overline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cli_reps" />
+
+            <TextView
+                android:id="@+id/tvReps"
+                style="@style/TextAppearance.JmFit.Cliente.Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="8-10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.JmFit.Cliente.Overline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cli_peso" />
+
+            <TextView
+                android:id="@+id/tvPeso"
+                style="@style/TextAppearance.JmFit.Cliente.Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="70 kg" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.JmFit.Cliente.Overline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cli_descanso" />
+
+            <TextView
+                android:id="@+id/tvDescanso"
+                style="@style/TextAppearance.JmFit.Cliente.Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="90 s" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvIndicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+        android:textColor="@color/jmfit_text_secondary"
+        android:textStyle="italic"
+        tools:text="Pies firmes, ligero arco, barra a la mitad del pecho. Controla la bajada." />
+</LinearLayout>

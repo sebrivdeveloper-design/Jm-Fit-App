@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Estilos de las pantallas del CLIENTE INTERNO. Complementan styles.xml sin modificarlo. -->
+<resources>
+
+    <!-- Barra inferior del cliente: ícono + etiqueta, sección activa en rojo, sin indicador -->
+    <style name="Widget.JmFit.BottomNav.Cliente" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemIconTint">@color/cli_nav_item</item>
+        <item name="itemTextColor">@color/cli_nav_item</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.JmFit.BottomNav.Cliente.Indicator</item>
+        <item name="itemRippleColor">@color/cli_tarjeta</item>
+        <item name="android:background">@color/cli_fondo</item>
+        <item name="elevation">0dp</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.JmFit.Cliente.NavLabel</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.JmFit.Cliente.NavLabel</item>
+    </style>
+
+    <style name="Widget.JmFit.BottomNav.Cliente.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    <style name="TextAppearance.JmFit.Cliente.NavLabel" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Títulos grandes (saludo, nombre del entrenamiento, nombre del cliente) -->
+    <style name="TextAppearance.JmFit.Cliente.Display" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textColor">@color/jmfit_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Título de sección ("Esta semana", "Cuerpo y objetivo") -->
+    <style name="TextAppearance.JmFit.Cliente.Section" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/jmfit_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Etiqueta pequeña en mayúsculas (SERIES, PROGRAMA ACTUAL...) -->
+    <style name="TextAppearance.JmFit.Cliente.Overline" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/jmfit_text_secondary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <!-- Valor destacado de una estadística -->
+    <style name="TextAppearance.JmFit.Cliente.Value" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/jmfit_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Etiqueta de las tarjetas oscuras (ENTRENAMIENTO DE HOY, PROGRAMA ACTUAL) -->
+    <style name="TextAppearance.JmFit.Cliente.Overline.Oscuro">
+        <item name="android:textColor">@color/cli_rojo_suave</item>
+    </style>
+
+    <!-- Fila de opción del perfil (solo visual, sin acción) -->
+    <style name="Widget.JmFit.Cliente.OpcionPerfil" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">52dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
+        <item name="android:textColor">@color/jmfit_text</item>
+        <item name="android:drawableEnd">@drawable/ic_cli_chevron_right</item>
+        <item name="android:drawableTint">@color/jmfit_text</item>
+    </style>
+
+    <!-- Separador horizontal fino -->
+    <style name="Widget.JmFit.Cliente.Divider" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/jmfit_outline</item>
+    </style>
+
+    <!-- Chip de objetivo (solo visual) -->
+    <style name="Widget.JmFit.Cliente.Chip" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Material3.LabelMedium</item>
+        <item name="android:textColor">@color/jmfit_text</item>
+        <item name="android:background">@drawable/bg_cli_chip_gris</item>
+    </style>
+</resources>

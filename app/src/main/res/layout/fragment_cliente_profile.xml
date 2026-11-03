@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- HU Cliente — CA03: perfil del cliente interno. Solo la barra inferior tiene acción. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cli_fondo"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Encabezado: avatar, nombre y fecha de vinculación -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_cli_avatar"
+                    android:contentDescription="@string/cli_avatar_desc"
+                    android:padding="14dp"
+                    android:src="@drawable/ic_cli_profile"
+                    app:tint="@color/jmfit_text_secondary" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvNombreCliente"
+                        style="@style/TextAppearance.JmFit.Cliente.Display"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="26sp"
+                        tools:text="Camila Restrepo" />
+
+                    <TextView
+                        android:id="@+id/tvClienteDesde"
+                        style="@style/TextAppearance.JmFit.Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        tools:text="Cliente desde ago 2026 · Bogotá" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Programa actual -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_cli_tarjeta_oscura"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    style="@style/TextAppearance.JmFit.Cliente.Overline.Oscuro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cli_programa_actual" />
+
+                <TextView
+                    android:id="@+id/tvPrograma"
+                    style="@style/TextAppearance.JmFit.Cliente.Value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    tools:text="Hipertrofia — Fase 2" />
+
+                <TextView
+                    android:id="@+id/tvAsignadoPor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="@color/cli_texto_sobre_oscuro"
+                    tools:text="Asignado por Juan Madroñero · Semana 6 de 12" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progresoPrograma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:indicatorColor="@color/jmfit_primary"
+                    app:trackColor="@color/cli_oscuro_pista"
+                    app:trackCornerRadius="0dp"
+                    app:trackStopIndicatorSize="0dp"
+                    app:indicatorTrackGapSize="0dp"
+                    app:trackThickness="4dp"
+                    tools:progress="50" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.JmFit.Cliente.Overline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cli_sesiones_semana"
+                            android:textColor="@color/cli_texto_sobre_oscuro" />
+
+                        <TextView
+                            android:id="@+id/tvSesionesSemana"
+                            style="@style/TextAppearance.JmFit.Cliente.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/white"
+                            tools:text="4" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.JmFit.Cliente.Overline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cli_inicio"
+                            android:textColor="@color/cli_texto_sobre_oscuro" />
+
+                        <TextView
+                            android:id="@+id/tvFechaInicio"
+                            style="@style/TextAppearance.JmFit.Cliente.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/white"
+                            tools:text="4 ago" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.JmFit.Cliente.Overline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cli_proximo_control"
+                            android:textColor="@color/cli_texto_sobre_oscuro" />
+
+                        <TextView
+                            android:id="@+id/tvProximoControl"
+                            style="@style/TextAppearance.JmFit.Cliente.Value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/white"
+                            tools:text="2 oct" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Cuerpo y objetivo -->
+            <TextView
+                style="@style/TextAppearance.JmFit.Cliente.Section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/cli_cuerpo_objetivo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_cli_celda"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cli_edad"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="@color/jmfit_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvEdad"
+                        style="@style/TextAppearance.JmFit.Cliente.Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="29" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_cli_celda"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cli_estatura"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="@color/jmfit_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvEstatura"
+                        style="@style/TextAppearance.JmFit.Cliente.Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="1,68 m" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-1dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_cli_celda"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cli_peso_actual"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="@color/jmfit_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvPesoActual"
+                        style="@style/TextAppearance.JmFit.Cliente.Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="78,4 kg" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-1dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_cli_celda"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cli_peso_objetivo"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                        android:textColor="@color/jmfit_text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvPesoObjetivo"
+                        style="@style/TextAppearance.JmFit.Cliente.Value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/cli_rojo_texto"
+                        tools:text="74 kg" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Objetivos (chips solo visuales). El primero va en rojo, como en el diseño. -->
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:chipSpacingHorizontal="8dp"
+                app:chipSpacingVertical="8dp">
+
+                <TextView
+                    android:id="@+id/tvObjetivo1"
+                    style="@style/Widget.JmFit.Cliente.Chip"
+                    android:background="@drawable/bg_cli_chip_rojo"
+                    android:textColor="@color/cli_rojo_texto"
+                    tools:text="Pérdida de grasa" />
+
+                <TextView
+                    android:id="@+id/tvObjetivo2"
+                    style="@style/Widget.JmFit.Cliente.Chip"
+                    tools:text="Ganancia muscular" />
+
+                <TextView
+                    android:id="@+id/tvObjetivo3"
+                    style="@style/Widget.JmFit.Cliente.Chip"
+                    tools:text="Intermedio" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- Observaciones del entrenador -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_cli_tarjeta"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tvNotasDe"
+                    style="@style/TextAppearance.JmFit.Cliente.Overline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/jmfit_primary"
+                    tools:text="Notas de Juan" />
+
+                <TextView
+                    android:id="@+id/tvNotas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="@color/jmfit_text"
+                    tools:text="Leve molestia en el hombro izquierdo…" />
+            </LinearLayout>
+
+            <!-- Opciones (solo visuales: no abren ninguna pantalla) -->
+            <View
+                style="@style/Widget.JmFit.Cliente.Divider"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                style="@style/Widget.JmFit.Cliente.OpcionPerfil"
+                android:text="@string/cli_historial" />
+
+            <View style="@style/Widget.JmFit.Cliente.Divider" />
+
+            <TextView
+                style="@style/Widget.JmFit.Cliente.OpcionPerfil"
+                android:text="@string/cli_pedidos" />
+
+            <View style="@style/Widget.JmFit.Cliente.Divider" />
+
+            <TextView
+                style="@style/Widget.JmFit.Cliente.OpcionPerfil"
+                android:text="@string/cli_notificaciones" />
+
+            <View style="@style/Widget.JmFit.Cliente.Divider" />
+
+            <TextView
+                style="@style/Widget.JmFit.Cliente.OpcionPerfil"
+                android:text="@string/cli_configuracion" />
+
+            <View style="@style/Widget.JmFit.Cliente.Divider" />
+
+            <!-- "Cerrar sesión": cierra la sesión y vuelve al login (permite cambiar de usuario) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCerrarSesion"
+                style="@style/Widget.JmFit.Button.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="start|center_vertical"
+                android:text="@string/cli_cerrar_sesion"
+                android:textStyle="bold"
+                app:strokeColor="@color/jmfit_text_secondary" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View style="@style/Widget.JmFit.Cliente.Divider" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/barraCliente"
+        style="@style/Widget.JmFit.BottomNav.Cliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_cliente" />
+</LinearLayout>
