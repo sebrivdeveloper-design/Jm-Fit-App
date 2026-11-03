@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Subgrafo de la TIENDA / CLIENTE EXTERNO (EXT-13 a EXT-20). No requiere sesión. Pantalla provisional.  -->
+<!--  Subgrafo de la TIENDA / CLIENTE EXTERNO (EXT-13 a EXT-20). No requiere sesión. -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_store" app:startDestination="@id/storeCatalogFragment">
-    <fragment android:id="@+id/storeCatalogFragment" android:name="com.forcetech.jmfitapp.ui.common.RolePlaceholderFragment" android:label="@string/placeholder_titulo_store"/>
+    <!-- Vista 1: catálogo de productos -->
+    <fragment android:id="@+id/storeCatalogFragment" android:name="com.forcetech.jmfitapp.ui.store.CatalogoFragment" android:label="@string/tienda_titulo_catalogo">
+        <action android:id="@+id/action_catalogo_to_detalle" app:destination="@id/storeProductDetailFragment" />
+    </fragment>
+    <!-- Vista 2: detalle del producto (recibe el id del producto) -->
+    <fragment android:id="@+id/storeProductDetailFragment" android:name="com.forcetech.jmfitapp.ui.store.DetalleProductoFragment" android:label="@string/tienda_titulo_detalle">
+        <argument android:name="productoId" app:argType="integer" />
+    </fragment>
     <!-- Carrito de compras. Desde el catálogo se abre con: findNavController().navigate(R.id.carritoFragment) -->
     <fragment android:id="@+id/carritoFragment" android:name="com.forcetech.jmfitapp.ui.store.CarritoFragment" android:label="@string/carrito_titulo"/>
 </navigation>
