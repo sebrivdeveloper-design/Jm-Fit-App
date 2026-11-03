@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.forcetech.jmfitapp.JmFitApplication
 import com.forcetech.jmfitapp.R
 import com.forcetech.jmfitapp.databinding.FragmentClienteProfileBinding
+import com.forcetech.jmfitapp.ui.common.TemaApp
 
 /**
  * HU Cliente — CA03: perfil del cliente interno.
@@ -44,6 +45,8 @@ class ClienteProfileFragment : Fragment(R.layout.fragment_cliente_profile) {
 
         binding.tvNotasDe.text = getString(R.string.cli_notas_de, datos.ENTRENADOR_NOMBRE_CORTO)
         binding.tvNotas.text = datos.NOTAS_ENTRENADOR
+
+        binding.btnTema.setOnClickListener { TemaApp.mostrarSelector(requireContext()) }
 
         // Igual que RolePlaceholderFragment: borra la sesión y vuelve al login limpiando el historial
         binding.btnCerrarSesion.setOnClickListener {

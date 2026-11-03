@@ -382,6 +382,14 @@
             <View style="@style/Widget.JmFit.Cliente.Divider" />
 
             <TextView
+                android:id="@+id/btnTema"
+                style="@style/Widget.JmFit.Cliente.OpcionPerfil"
+                android:background="?attr/selectableItemBackground"
+                android:text="@string/tema_boton" />
+
+            <View style="@style/Widget.JmFit.Cliente.Divider" />
+
+            <TextView
                 style="@style/Widget.JmFit.Cliente.OpcionPerfil"
                 android:text="@string/cli_configuracion" />
 

@@ -46,6 +46,9 @@ interface ProductoDao {
         estado: Int
     ): List<Producto>
 
+    @Query("SELECT COUNT(*) FROM productos")
+    suspend fun contar(): Int
+
     @Query("SELECT * FROM productos WHERE id = :idProducto LIMIT 1")
     suspend fun obtenerProductoPorId(idProducto: Int): Producto?
 }
