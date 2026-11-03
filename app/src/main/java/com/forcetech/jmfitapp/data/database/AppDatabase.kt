@@ -6,12 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
+import com.forcetech.jmfitapp.data.dao.CarritoDao
 import com.forcetech.jmfitapp.data.dao.ProductoDao
 import com.forcetech.jmfitapp.data.dao.EjercicioDao
 import com.forcetech.jmfitapp.data.dao.RolDao
 import com.forcetech.jmfitapp.data.dao.RutinaDao
 import com.forcetech.jmfitapp.data.dao.UsuarioDao
 
+import com.forcetech.jmfitapp.model.CarritoItem
 import com.forcetech.jmfitapp.model.Producto
 import com.forcetech.jmfitapp.model.AsignacionEntrenador
 import com.forcetech.jmfitapp.model.AsignacionRutina
@@ -46,9 +48,12 @@ import com.forcetech.jmfitapp.model.Usuario
         AsignacionRutina::class,
 
         // Entidad de productos
-        Producto::class
+        Producto::class,
+
+        // Entidad del carrito
+        CarritoItem::class
     ],
-    version = 3,
+    version = 4,
     exportSchema = false
 )
 @TypeConverters(BigDecimalConverter::class)
@@ -62,6 +67,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun usuarioDao(): UsuarioDao
     abstract fun ejercicioDao(): EjercicioDao
     abstract fun rutinaDao(): RutinaDao
+
+    // DAO del carrito
+    abstract fun carritoDao(): CarritoDao
 
     companion object {
 

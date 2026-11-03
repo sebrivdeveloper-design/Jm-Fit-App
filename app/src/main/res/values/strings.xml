@@ -224,4 +224,39 @@
     <string name="placeholder_titulo_admin">Administrador · Inicio</string>
     <string name="placeholder_titulo_intern">Cliente interno · Home</string>
     <string name="placeholder_titulo_store">Tienda · Catálogo</string>
+
+    <!-- Carrito de compras -->
+    <string name="carrito_marca">JM FIT</string>
+    <string name="carrito_titulo">Carrito</string>
+    <string name="carrito_cd_volver">Volver</string>
+    <string name="carrito_cd_carrito">Carrito de compras</string>
+    <string name="carrito_lleno_titulo">Tu equipo, listo.</string>
+    <plurals name="carrito_lleno_subtitulo">
+        <item quantity="one">%d producto para dar tu siguiente paso.</item>
+        <item quantity="other">%d productos para dar tu siguiente paso.</item>
+    </plurals>
+    <plurals name="carrito_subtotal">
+        <item quantity="one">Subtotal · %d producto</item>
+        <item quantity="other">Subtotal · %d productos</item>
+    </plurals>
+    <string name="carrito_unidad_una">1 unidad</string>
+    <string name="carrito_por_unidad">%1$s por unidad</string>
+    <string name="carrito_cd_eliminar">Eliminar %1$s del carrito</string>
+    <string name="carrito_cd_sumar">Aumentar cantidad</string>
+    <string name="carrito_cd_restar">Disminuir cantidad</string>
+    <string name="carrito_beneficio_titulo">Beneficio de socio aplicado</string>
+    <string name="carrito_beneficio_detalle">Ahorras %1$s con tu membresía JM FIT.</string>
+    <string name="carrito_descuento_socio">Descuento socio · %1$d%%</string>
+    <string name="carrito_envio">Envío a Bogotá</string>
+    <string name="carrito_total">Total COP</string>
+    <string name="carrito_continuar">Continuar compra</string>
+    <string name="carrito_continuar_pendiente">El pago estará disponible muy pronto.</string>
+    <string name="carrito_pago_seguro">Pago seguro · Tus datos están protegidos</string>
+    <string name="carrito_vacio_titulo">Aquí empieza tu próxima meta</string>
+    <string name="carrito_vacio_detalle">Tu carrito está vacío. Encuentra nutrición y accesorios que sigan tu ritmo.</string>
+    <string name="carrito_explorar">Explorar productos</string>
+    <string name="carrito_vacio_socio">Tu %1$d%% de socio te espera en la tienda.</string>
+    <string name="carrito_eliminado">%1$s eliminado del carrito</string>
+    <string name="carrito_deshacer">Deshacer</string>
+    <string name="carrito_error">No pudimos actualizar tu carrito. Inténtalo de nuevo.</string>
 </resources>
