@@ -56,6 +56,7 @@ object DatabaseSeeder {
     private class DiaSeed(val dia: Int, val lineas: List<LineaSeed>)
 
     suspend fun seedIfNeeded(db: AppDatabase) {
+        CatalogoSeeder.sembrarSiHaceFalta(db)
         if (db.rolDao().contar() > 0) return
 
         // El hash es costoso (PBKDF2), así que se calcula antes de abrir la transacción.

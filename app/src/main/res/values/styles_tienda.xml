@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Chip de categoría: seleccionado = borde y texto naranja con fondo claro, como en el diseño -->
+    <style name="Widget.JmFit.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/jmfit_chip_bg</item>
+        <item name="chipStrokeColor">@color/jmfit_chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/jmfit_chip_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipCornerRadius">4dp</item>
+    </style>
+</resources>
