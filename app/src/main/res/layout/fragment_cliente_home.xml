@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- HU Cliente — CA01: pantalla principal del cliente interno. Solo "Iniciar entrenamiento" tiene acción. -->
+<!-- HU Cliente — CA01: pantalla principal del cliente interno.
+     HU-27B/HU-29: rutina asignada real con selector de días. HU-36: WhatsApp con el entrenador.
+     Resumen semanal y fotos siguen siendo visuales (PROGRESS aún no existe). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -94,6 +96,17 @@
                     tools:text="5 ejercicios · unos 50 minutos" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnReintentar"
+                    style="@style/Widget.JmFit.Button.Outlined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cli_reintentar"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:strokeColor="@color/cli_texto_sobre_oscuro" />
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnIniciarEntreno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -106,7 +119,67 @@
                     app:shapeAppearance="@style/ShapeAppearance.JmFit.Small" />
             </LinearLayout>
 
-            <!-- Resumen semanal -->
+            <!-- HU-27B: rutina asignada por día (lunes a domingo, hoy seleccionado por defecto) -->
+            <LinearLayout
+                android:id="@+id/seccionMiRutina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    style="@style/TextAppearance.JmFit.Cliente.Section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/cli_mi_rutina" />
+
+                <TextView
+                    android:id="@+id/tvNombreRutina"
+                    style="@style/TextAppearance.JmFit.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    tools:text="Hipertrofia — Fase 2 · Hipertrofia · Intermedio" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipsDias"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:selectionRequired="true"
+                        app:singleLine="true"
+                        app:singleSelection="true" />
+                </HorizontalScrollView>
+
+                <!-- Se llena desde el Fragment con item_cliente_ejercicio_resumen -->
+                <LinearLayout
+                    android:id="@+id/contenedorDiaRutina"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/tvDiaVacio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_cli_tarjeta"
+                    android:padding="12dp"
+                    android:text="@string/cli_dia_sin_ejercicios"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="@color/jmfit_text_secondary"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Resumen semanal (solo visual) -->
             <TextView
                 style="@style/TextAppearance.JmFit.Cliente.Section"
                 android:layout_width="wrap_content"
@@ -278,7 +351,7 @@
                     app:tint="@color/jmfit_text" />
             </LinearLayout>
 
-            <!-- Mensaje del entrenador (solo visual) -->
+            <!-- HU-36: entrenador asignado y acceso a WhatsApp -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -324,7 +397,16 @@
                     android:layout_marginTop="12dp"
                     android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
                     android:textColor="@color/jmfit_text_secondary"
-                    tools:text="hace 2 min" />
+                    tools:text="Tu entrenador" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWhatsApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/cli_escribir_whatsapp"
+                    app:icon="@drawable/ic_cli_chat"
+                    app:shapeAppearance="@style/ShapeAppearance.JmFit.Small" />
             </LinearLayout>
 
             <View

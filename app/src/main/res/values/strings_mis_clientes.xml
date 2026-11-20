@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos de "Mis clientes" del ENTRENADOR (HU-51 y HU-57). Prefijo mcli_. -->
+<resources>
+    <string name="mcli_seccion">Panel del entrenador</string>
+    <string name="mcli_subtitulo">Clientes con asignación vigente contigo.</string>
+    <string name="mcli_activos">Clientes activos asignados</string>
+    <string name="mcli_buscar_hint">Buscar por nombre</string>
+    <string name="mcli_usuario">\@%1$s</string>
+    <string name="mcli_rutina">Rutina actual</string>
+    <string name="mcli_sin_rutina">Sin rutina asignada</string>
+    <string name="mcli_estado_activo">Activo</string>
+    <string name="mcli_estado_inhabilitado">Inhabilitado</string>
+    <string name="mcli_vacio">Aún no tienes clientes asignados</string>
+    <string name="mcli_sin_resultados">No se encontraron clientes con los datos ingresados</string>
+    <string name="mcli_error">No fue posible cargar el resumen de clientes</string>
+    <string name="mcli_reintentar">Reintentar</string>
+</resources>

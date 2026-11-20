@@ -10,7 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 /**
  * Barra inferior del cliente interno (mismo patrón que BarraEntrenador).
  * Los ids de menu_cliente.xml coinciden con los destinos de nav_intern.xml.
- * Progreso y Chat se muestran pero no navegan (fuera del alcance de la HU).
+ * Progreso solo se muestra (PROGRESS aún no existe). Chat abre WhatsApp con el entrenador (HU-36).
  * Workout y Perfil siempre cuelgan de Home, así "Atrás" desde cualquiera vuelve a Home.
  */
 object BarraCliente {
@@ -21,7 +21,16 @@ object BarraCliente {
         R.id.internProfileFragment
     )
 
-    fun configurar(barra: BottomNavigationView, nav: NavController, actual: Int) {
+    /**
+     * [alTocarChat] se ejecuta al tocar "Chat" (HU-36: abre WhatsApp con el entrenador).
+     * La pestaña activa no cambia porque Chat no es una pantalla de la app.
+     */
+    fun configurar(
+        barra: BottomNavigationView,
+        nav: NavController,
+        actual: Int,
+        alTocarChat: (() -> Unit)? = null
+    ) {
         // Cada pantalla marca su propia pestaña. Sin esto, al volver con "Atrás" la barra
         // restauraría la pestaña que se tocó al salir (p. ej. Perfil) en lugar de Inicio.
         barra.isSaveEnabled = false
@@ -29,6 +38,10 @@ object BarraCliente {
         barra.selectedItemId = actual
         barra.setOnItemSelectedListener { item ->
             when {
+                item.itemId == R.id.cliTabChat -> {
+                    alTocarChat?.invoke()
+                    false
+                }
                 item.itemId !in DESTINOS -> false // solo visual: no cambia la pestaña activa
                 item.itemId == actual -> true
                 else -> {
@@ -39,6 +52,11 @@ object BarraCliente {
         }
         // Volver a tocar la pestaña activa no hace nada
         barra.setOnItemReselectedListener { }
+    }
+
+    /** Configura la barra y conecta "Chat" con WhatsApp del entrenador (HU-36). */
+    fun configurar(fragment: androidx.fragment.app.Fragment, barra: BottomNavigationView, nav: NavController, actual: Int) {
+        configurar(barra, nav, actual) { WhatsAppEntrenador.abrir(fragment, barra) }
     }
 
     fun irA(nav: NavController, destino: Int) {

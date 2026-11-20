@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- HU Cliente — CA02: detalle del entrenamiento del día. Solo el botón regresar y la barra inferior tienen acción. -->
+<!-- HU Cliente — CA02 / HU-29: ejercicios del día actual de la rutina asignada.
+     Las casillas siguen siendo visuales: el checklist que guarda el avance es la HU-28 (pendiente). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -74,6 +75,28 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="12dp"
                 android:background="@color/jmfit_text_secondary" />
+
+            <!-- Sin rutina, día de descanso o error de carga -->
+            <TextView
+                android:id="@+id/tvMensajeEntreno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_cli_tarjeta"
+                android:padding="16dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                android:textColor="@color/jmfit_text"
+                android:visibility="gone"
+                tools:text="Hoy es día de descanso"
+                tools:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReintentar"
+                style="@style/Widget.JmFit.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/cli_reintentar"
+                android:visibility="gone" />
 
             <!-- Se llena desde el Fragment con item_cliente_ejercicio -->
             <LinearLayout
