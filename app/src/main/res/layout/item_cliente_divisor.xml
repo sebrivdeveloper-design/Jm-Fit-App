@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Separador entre filas de datos del perfil (HU-33). -->
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.JmFit.Cliente.Divider" />

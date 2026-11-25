@@ -14,6 +14,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import com.forcetech.jmfitapp.data.repository.CarritoRepository
 import com.forcetech.jmfitapp.data.repository.CatalogoRepository
+import com.forcetech.jmfitapp.data.repository.ClienteRepository
 
 /**
  * Contenedor de dependencias de la app (una sola instancia, creada en [JmFitApplication]).
@@ -51,6 +52,12 @@ class AppContainer(context: Context) {
 
     val rutinaRepository = RutinaRepository(
         db = database,
+        esperarBaseLista = ::esperarBaseLista
+    )
+
+    /** Datos reales del cliente interno (HOME, WORKOUT, MY PROFILE) y "Mis clientes" del entrenador. */
+    val clienteRepository = ClienteRepository(
+        dao = database.clienteDao(),
         esperarBaseLista = ::esperarBaseLista
     )
 

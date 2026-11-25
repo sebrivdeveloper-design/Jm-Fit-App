@@ -131,7 +131,7 @@
         <item name="labelVisibilityMode">unlabeled</item>
         <item name="itemIconTint">@color/jmfit_text</item>
         <item name="itemActiveIndicatorStyle">@style/Widget.JmFit.BottomNav.Indicator</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/jmfit_surface</item>
         <item name="elevation">0dp</item>
         <item name="android:minHeight">56dp</item>
         <item name="itemPaddingTop">6dp</item>

@@ -7,7 +7,7 @@
     android:layout_margin="6dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="@color/jmfit_surface"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp"
     app:strokeColor="@color/jmfit_outline"

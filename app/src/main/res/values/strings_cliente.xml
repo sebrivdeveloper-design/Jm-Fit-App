@@ -59,4 +59,74 @@
     <string name="cli_notificaciones">Notificaciones</string>
     <string name="cli_configuracion">Configuración de la cuenta</string>
     <string name="cli_cerrar_sesion">Cerrar sesión</string>
+
+    <!-- ===== Datos reales (HU-27B, HU-29, HU-33, HU-36) ===== -->
+    <string name="cli_cargando">Cargando…</string>
+    <string name="cli_reintentar">Reintentar</string>
+    <string name="cli_no_registrado">No registrado</string>
+    <string name="cli_guion">—</string>
+
+    <!-- HU-27B / HU-29: rutina asignada -->
+    <string name="cli_sin_rutina">Aún no tienes una rutina asignada. Comunícate con el gimnasio</string>
+    <string name="cli_dia_descanso">Hoy es día de descanso</string>
+    <string name="cli_dia_sin_ejercicios">No hay ejercicios programados para este día</string>
+    <string name="cli_error_rutina">No fue posible cargar tu rutina</string>
+    <string name="cli_error_entreno">No fue posible cargar tu entrenamiento</string>
+    <string name="cli_entreno_hoy_detalle">%1$s · %2$d ejercicios</string>
+    <string name="cli_mi_rutina">Mi rutina</string>
+    <string name="cli_rutina_nombre_dia">%1$s · %2$s</string>
+    <string name="cli_series_reps">%1$d × %2$s</string>
+    <string name="cli_series_solo">%1$d series</string>
+    <string name="cli_reps_solo">%1$s reps</string>
+    <string name="cli_descanso_seg">%1$d s</string>
+    <string name="cli_peso_kg">%1$s kg</string>
+    <string name="cli_dropset">Dropset</string>
+    <string name="cli_casilla_pendiente_desc">Casilla del ejercicio (el registro del avance aún no está disponible)</string>
+
+    <!-- Abreviaturas de los días (selector de HOME) -->
+    <string-array name="cli_dias_cortos">
+        <item>L</item>
+        <item>M</item>
+        <item>X</item>
+        <item>J</item>
+        <item>V</item>
+        <item>S</item>
+        <item>D</item>
+    </string-array>
+    <string-array name="cli_dias_largos">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miércoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+        <item>Sábado</item>
+        <item>Domingo</item>
+    </string-array>
+
+    <!-- HU-33: MY PROFILE -->
+    <string name="cli_error_perfil">No fue posible cargar tu perfil. Inténtalo nuevamente</string>
+    <string name="cli_usuario_desde">@%1$s · Cliente desde %2$s</string>
+    <string name="cli_datos_cuenta">Datos de la cuenta</string>
+    <string name="cli_dato_nombre">Nombre completo</string>
+    <string name="cli_dato_usuario">Usuario</string>
+    <string name="cli_dato_cedula">Cédula</string>
+    <string name="cli_dato_correo">Correo electrónico</string>
+    <string name="cli_dato_celular">Celular</string>
+    <string name="cli_dato_nacimiento">Fecha de nacimiento</string>
+    <string name="cli_dato_sexo">Sexo</string>
+    <string name="cli_edad_anios">%1$d años</string>
+    <string name="cli_estatura_cm">%1$d cm</string>
+    <string name="cli_asignada_por_desde">Asignada por %1$s · desde %2$s</string>
+    <string name="cli_asignada_desde">Asignada desde %1$s</string>
+    <string name="cli_sin_programa">Actualmente no tienes un programa de entrenamiento asignado</string>
+    <string name="cli_notas_rutina">Notas de la rutina</string>
+    <string name="cli_tipo_personalizada">Rutina personalizada</string>
+    <string name="cli_tipo_preestablecida">Rutina preestablecida</string>
+
+    <!-- HU-36: WhatsApp con el entrenador -->
+    <string name="cli_tu_entrenador">Tu entrenador</string>
+    <string name="cli_sin_entrenador">Aún no tienes un entrenador asignado</string>
+    <string name="cli_escribir_whatsapp">Escribir por WhatsApp</string>
+    <string name="cli_whatsapp_no_abre">No fue posible abrir WhatsApp. Verifica tu conexión e inténtalo nuevamente</string>
+    <string name="cli_whatsapp_sin_contacto">El contacto del entrenador no está disponible en este momento</string>
 </resources>

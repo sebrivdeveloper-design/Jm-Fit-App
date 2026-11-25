@@ -1,0 +1,45 @@
+appId: com.forcetech.jmfitapp
+name: Login del administrador
+---
+# clearState borra los datos de la app en el dispositivo para empezar siempre desde el login.
+- launchApp:
+    clearState: true
+- waitForAnimationToEnd
+
+- runScript:
+    file: ../narrar.js
+    env:
+      TEXTO: "Bienvenidos a JM Fit. En esta prueba vamos a iniciar sesión como administrador."
+
+- runScript:
+    file: ../narrar.js
+    env:
+      TEXTO: "Primero escribimos el nombre de usuario."
+- tapOn:
+    id: "etUsuario"
+- inputText: "admin"
+
+- runScript:
+    file: ../narrar.js
+    env:
+      TEXTO: "Luego la contraseña."
+- tapOn:
+    id: "etPassword"
+- inputText: "Admin#2026"
+- hideKeyboard
+
+- runScript:
+    file: ../narrar.js
+    env:
+      TEXTO: "Presionamos iniciar sesión."
+- tapOn:
+    id: "btnIniciarSesion"
+- waitForAnimationToEnd
+
+- assertNotVisible:
+    id: "btnIniciarSesion"
+- hideKeyboard
+- runScript:
+    file: ../narrar.js
+    env:
+      TEXTO: "Listo. El administrador entró correctamente a su panel."

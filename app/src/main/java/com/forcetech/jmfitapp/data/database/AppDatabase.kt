@@ -8,6 +8,7 @@ import androidx.room.TypeConverters
 
 import com.forcetech.jmfitapp.data.dao.CarritoDao
 import com.forcetech.jmfitapp.data.dao.CatalogoDao
+import com.forcetech.jmfitapp.data.dao.ClienteDao
 import com.forcetech.jmfitapp.data.dao.ProductoDao
 import com.forcetech.jmfitapp.data.dao.EjercicioDao
 import com.forcetech.jmfitapp.data.dao.RolDao
@@ -80,6 +81,9 @@ abstract class AppDatabase : RoomDatabase() {
 
     // DAO del carrito
     abstract fun carritoDao(): CarritoDao
+
+    // DAO de lectura del cliente interno y de "Mis clientes" (no agrega tablas: no cambia la versión)
+    abstract fun clienteDao(): ClienteDao
 
     companion object {
 

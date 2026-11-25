@@ -22,6 +22,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import kotlinx.coroutines.launch
+import com.forcetech.jmfitapp.ui.common.TemaApp
 
 /**
  * ENT-6 (listado de rutinas) y ENT-7 (inhabilitar / reactivar). Pestañas "Estándar" (solo lectura)
@@ -69,6 +70,8 @@ class RutinasFragment : Fragment(R.layout.fragment_rutinas) {
                 Snackbar.make(binding.root, mensaje, Snackbar.LENGTH_LONG).show()
             }
         }
+
+        binding.btnTema.setOnClickListener { TemaApp.mostrarSelector(requireContext()) }
 
         binding.btnCerrarSesion.setOnClickListener {
             appContainer.authRepository.cerrarSesion()

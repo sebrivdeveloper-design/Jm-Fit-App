@@ -29,7 +29,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@drawable/bg_cli_casilla"
-            android:contentDescription="@string/cli_casilla_desc"
+            android:contentDescription="@string/cli_casilla_pendiente_desc"
             android:padding="7dp"
             android:src="@drawable/ic_cli_check"
             app:tint="@color/jmfit_text" />

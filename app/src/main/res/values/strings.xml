@@ -259,4 +259,13 @@
     <string name="carrito_eliminado">%1$s eliminado del carrito</string>
     <string name="carrito_deshacer">Deshacer</string>
     <string name="carrito_error">No pudimos actualizar tu carrito. Inténtalo de nuevo.</string>
+
+    <!-- Tema de la app (claro / oscuro) -->
+    <string name="tema_titulo">Tema de la app</string>
+    <string name="tema_boton">Tema</string>
+    <string name="tema_boton_login">Cambiar tema</string>
+    <string name="tema_claro">Claro</string>
+    <string name="tema_oscuro">Oscuro</string>
+    <string name="tema_sistema">Según el sistema</string>
+    <string name="tema_cancelar">Cancelar</string>
 </resources>

@@ -120,5 +120,13 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:text="@string/login_ver_catalogo" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTema"
+            style="@style/Widget.JmFit.Button.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/tema_boton_login" />
     </LinearLayout>
 </ScrollView>

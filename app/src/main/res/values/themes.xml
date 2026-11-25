@@ -1,17 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Tema base de JM FIT. El diseño es solo claro, por eso no se usa DayNight. -->
-    <style name="Base.Theme.JmFitApp" parent="Theme.Material3.Light.NoActionBar">
+    <!-- Tema base de JM FIT. Usa DayNight: los colores oscuros están en values-night/colors.xml
+         y el usuario elige claro, oscuro o según el sistema (ver ui/common/TemaApp.kt). -->
+    <style name="Base.Theme.JmFitApp" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/jmfit_primary</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryContainer">@color/jmfit_primary_container</item>
         <item name="colorOnPrimaryContainer">@color/jmfit_primary</item>
-        <item name="colorSurface">@color/white</item>
+        <item name="colorSurface">@color/jmfit_surface</item>
         <item name="colorOnSurface">@color/jmfit_text</item>
         <item name="colorOnSurfaceVariant">@color/jmfit_text_secondary</item>
         <item name="colorOutline">@color/jmfit_outline</item>
         <item name="colorError">@color/jmfit_error</item>
-        <item name="android:windowBackground">@color/white</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@color/jmfit_surface</item>
+        <item name="android:windowLightStatusBar">@bool/jmfit_barra_estado_clara</item>
 
         <item name="materialButtonStyle">@style/Widget.JmFit.Button</item>
         <item name="textInputStyle">@style/Widget.JmFit.TextInputLayout</item>

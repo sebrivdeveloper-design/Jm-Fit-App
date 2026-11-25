@@ -33,6 +33,7 @@ import com.forcetech.jmfitapp.JmFitApplication
 import com.forcetech.jmfitapp.MainActivity
 import java.text.SimpleDateFormat
 import java.util.Date
+import com.forcetech.jmfitapp.ui.common.TemaApp
 
 
 
@@ -125,6 +126,7 @@ class ProductoActivity : AppCompatActivity() {
         btnInactivos = findViewById(R.id.btnInactivos)
         tvFecha = findViewById(R.id.tvFecha)
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion)
+        findViewById<TextView>(R.id.btnTema).setOnClickListener { TemaApp.mostrarSelector(this) }
         barraAdministrador = findViewById(R.id.barraEntrenador)
     }
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- HU-27B: un ejercicio del día elegido en HOME (solo lectura). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_cli_tarjeta"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tvNombre"
+        style="@style/TextAppearance.JmFit.Cliente.Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Press inclinado con mancuernas" />
+
+    <TextView
+        android:id="@+id/tvDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:textColor="@color/jmfit_text_secondary"
+        tools:text="4 × 10 · 18 kg · 90 s" />
+
+    <TextView
+        android:id="@+id/tvObservaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+        android:textColor="@color/jmfit_text_secondary"
+        android:textStyle="italic"
+        android:visibility="gone"
+        tools:text="Controla la bajada."
+        tools:visibility="visible" />
+</LinearLayout>
