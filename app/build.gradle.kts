@@ -37,6 +37,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    // Pruebas JVM: las clases de Android (Log, Uri, Intent…) devuelven valores por defecto en vez de lanzar error
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -48,6 +53,9 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core) // Simulación de dependencias (mocks)
+    testImplementation(libs.mockito.kotlin) // whenever, verify, mock<T>() con sintaxis de Kotlin
+    testImplementation(libs.kotlinx.coroutines.test) // runTest y Dispatchers.setMain para los ViewModel
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
 
