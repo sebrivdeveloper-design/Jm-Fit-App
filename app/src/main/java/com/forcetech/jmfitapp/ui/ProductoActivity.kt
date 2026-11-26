@@ -1,6 +1,7 @@
 package com.forcetech.jmfitapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -20,7 +21,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.forcetech.jmfitapp.R
 import com.forcetech.jmfitapp.data.database.AppDatabase
 import com.forcetech.jmfitapp.model.Producto
-import java.math.BigDecimal
+import com.forcetech.jmfitapp.model.ValidadorProducto
+import com.forcetech.jmfitapp.data.repository.ProductoRepository
+import com.forcetech.jmfitapp.ui.productos.CargaProductos
 import java.text.NumberFormat
 import java.util.Locale
 import kotlinx.coroutines.Job
@@ -40,7 +43,8 @@ import com.forcetech.jmfitapp.ui.common.TemaApp
 
 class ProductoActivity : AppCompatActivity() {
 
-    private lateinit var productoDao: com.forcetech.jmfitapp.data.dao.ProductoDao
+    private lateinit var productoRepository: ProductoRepository
+    private lateinit var cargaProductos: CargaProductos
 
     private lateinit var adapter: ProductoAdapter
 
@@ -80,36 +84,48 @@ class ProductoActivity : AppCompatActivity() {
         tvFecha.text = fechaDeHoy()
         configurarCerrarSesion()
         configurarBarraAdministrador()
-
-        cargarProductos()
     }
 
     private fun configurarInsets() {
 
         val raiz = findViewById<View>(R.id.main)
+        val navegacion = findViewById<BottomNavigationView>(R.id.barraEntrenador)
+        val paddingNavegacion = navegacion.paddingBottom
 
         ViewCompat.setOnApplyWindowInsetsListener(raiz) { vista, insets ->
 
             val barras = insets.getInsets(
                 WindowInsetsCompat.Type.systemBars()
             )
+            val teclado = insets.getInsets(WindowInsetsCompat.Type.ime())
 
+            // La raíz protege el contenido y el teclado; la barra gestiona su propio borde inferior.
             vista.setPadding(
                 barras.left,
                 barras.top,
                 barras.right,
-                barras.bottom
+                teclado.bottom
             )
 
+            insets
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(navegacion) { vista, insets ->
+            val inferior = if (insets.isVisible(WindowInsetsCompat.Type.ime())) {
+                0
+            } else {
+                insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            }
+            // Evita sumar de nuevo el teclado o los bordes laterales ya aplicados a la raíz.
+            vista.setPadding(vista.paddingLeft, vista.paddingTop, vista.paddingRight, paddingNavegacion + inferior)
             insets
         }
     }
 
     private fun inicializarBaseDatos() {
 
-        productoDao = AppDatabase.obtener(
-            applicationContext
-        ).productoDao()
+        productoRepository = ProductoRepository(AppDatabase.obtener(applicationContext).productoDao())
+        cargaProductos = CargaProductos(productoRepository)
     }
 
     private fun inicializarVistas() {
@@ -303,36 +319,23 @@ class ProductoActivity : AppCompatActivity() {
 
         consultaJob = lifecycleScope.launch {
 
-            try {
-
-                val productos = productoDao.obtenerProductosFiltrados(
-                    busqueda = busquedaActual,
-                    estado = estadoSeleccionado
-                )
-
-                adapter.actualizarLista(productos)
-
-                if (productos.isEmpty()) {
-
-                    tvSinProductos.visibility = View.VISIBLE
-
-                    rvProductos.visibility = View.GONE
-
-                } else {
-
-                    tvSinProductos.visibility = View.GONE
-
-                    rvProductos.visibility = View.VISIBLE
+            cargaProductos.cargar(
+                busqueda = busquedaActual,
+                estado = estadoSeleccionado,
+                onProductos = { productos ->
+                    adapter.actualizarLista(productos)
+                    tvSinProductos.visibility = if (productos.isEmpty()) View.VISIBLE else View.GONE
+                    rvProductos.visibility = if (productos.isEmpty()) View.GONE else View.VISIBLE
+                },
+                onError = { error ->
+                    Log.e("ProductoActivity", "No se pudieron consultar los productos", error)
+                    Toast.makeText(
+                        this@ProductoActivity,
+                        getString(R.string.error_consultar),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-
-            } catch (e: Exception) {
-
-                Toast.makeText(
-                    this@ProductoActivity,
-                    getString(R.string.error_consultar),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            )
         }
     }
 
@@ -458,79 +461,40 @@ class ProductoActivity : AppCompatActivity() {
             val objetivo = etObjetivo.text.toString().trim()
             val presentacion = etPresentacion.text.toString().trim()
 
-            // Validar campos obligatorios
-
-            if (
-                nombre.isEmpty() ||
-                marca.isEmpty() ||
-                precioTexto.isEmpty() ||
-                objetivo.isEmpty() ||
-                presentacion.isEmpty()
-            ) {
-
-                Toast.makeText(
-                    this,
-                    R.string.error_campos_obligatorios,
-                    Toast.LENGTH_SHORT
-                ).show()
-
-                if (nombre.isEmpty()) etNombre.error = getString(R.string.error_campos_obligatorios)
-                if (marca.isEmpty()) etMarca.error = getString(R.string.error_campos_obligatorios)
-                if (objetivo.isEmpty()) etObjetivo.error = getString(R.string.error_campos_obligatorios)
-                if (presentacion.isEmpty()) etPresentacion.error = getString(R.string.error_campos_obligatorios)
-
-                return@setOnClickListener
-            }
-
-            // Validar precio
-
-            val precio = try {
-
-                BigDecimal(
-                    precioTexto.replace(",", ".")
-                )
-
-            } catch (e: NumberFormatException) {
-
-                null
-            }
-
-            if (precio == null || precio <= BigDecimal.ZERO) {
-
-                etPrecio.error = getString(
-                    R.string.error_precio
-                )
-
-                return@setOnClickListener
-            }
-
-            val nuevoProducto = Producto(
-
-                id = producto?.id ?: 0,
-
-                nombre = nombre,
-
-                marca = marca,
-
-                precio = precio,
-
-                objetivo = objetivo,
-
-                presentacion = presentacion,
-
-                activo = switchActivo.isChecked
+            val validacion = ValidadorProducto.validar(
+                nombre, marca, precioTexto, objetivo, presentacion,
+                activo = switchActivo.isChecked,
+                id = producto?.id ?: 0
             )
+            val nuevoProducto = when (validacion) {
+                is ValidadorProducto.Resultado.CamposObligatorios -> {
+                    Toast.makeText(this, R.string.error_campos_obligatorios, Toast.LENGTH_SHORT).show()
+                    val vistas = mapOf(
+                        ValidadorProducto.Campo.NOMBRE to etNombre,
+                        ValidadorProducto.Campo.MARCA to etMarca,
+                        ValidadorProducto.Campo.OBJETIVO to etObjetivo,
+                        ValidadorProducto.Campo.PRESENTACION to etPresentacion
+                    )
+                    validacion.campos.forEach { campo ->
+                        vistas[campo]?.error = getString(R.string.error_campos_obligatorios)
+                    }
+                    return@setOnClickListener
+                }
+                ValidadorProducto.Resultado.PrecioInvalido -> {
+                    etPrecio.error = getString(R.string.error_precio)
+                    return@setOnClickListener
+                }
+                is ValidadorProducto.Resultado.Valido -> validacion.producto
+            }
 
             lifecycleScope.launch {
 
                 try {
 
+                    val guardado = productoRepository.guardar(nuevoProducto, editando)
                     if (editando) {
 
-                        val filasActualizadas =
-                            productoDao.updateProductos(nuevoProducto)
-
-                        if (filasActualizadas > 0) {
+                        if (guardado) {
 
                             Toast.makeText(
                                 this@ProductoActivity,
@@ -548,8 +512,6 @@ class ProductoActivity : AppCompatActivity() {
                         }
 
                     } else {
-
-                        productoDao.guardarProductos(nuevoProducto)
 
                         Toast.makeText(
                             this@ProductoActivity,
@@ -639,12 +601,9 @@ class ProductoActivity : AppCompatActivity() {
 
                     try {
 
-                        val filas = productoDao.cambiarEstado(
-                            producto.id,
-                            nuevoEstado
-                        )
+                        val actualizado = productoRepository.cambiarEstado(producto)
 
-                        if (filas > 0) {
+                        if (actualizado) {
 
                             Toast.makeText(
                                 this@ProductoActivity,
