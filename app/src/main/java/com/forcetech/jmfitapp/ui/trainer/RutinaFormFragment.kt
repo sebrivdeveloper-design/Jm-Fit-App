@@ -23,6 +23,7 @@ import com.forcetech.jmfitapp.data.repository.LineaRutina
 import com.forcetech.jmfitapp.databinding.FragmentRutinaFormBinding
 import com.forcetech.jmfitapp.databinding.ItemLineaFormBinding
 import com.forcetech.jmfitapp.model.CatalogoRutinas
+import com.forcetech.jmfitapp.model.ValidadorRutina
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
@@ -272,32 +273,34 @@ class RutinaFormFragment : Fragment(R.layout.fragment_rutina_form) {
         val ejercicio = estado.ejercicios.firstOrNull { it.nombre == binding.actEjercicio.text.toString().trim() }
         if (ejercicio == null) fallo(binding.tilEjercicio, R.string.form_error_requerido, binding.actEjercicio)
 
-        val series = binding.etSeries.text.toString().trim().toIntOrNull()
-        if (series == null || series !in 1..20) fallo(binding.tilSeries, R.string.form_error_series, binding.etSeries)
-
-        val reps = binding.etRepeticiones.text.toString().trim()
-        if (reps.isEmpty() || reps.none { it.isDigit() } || reps.length > 20) {
-            fallo(binding.tilRepeticiones, R.string.form_error_repeticiones, binding.etRepeticiones)
-        }
-
-        // El peso es opcional, pero si se escribe debe ser un número mayor que 0
-        val textoPeso = binding.etPeso.text.toString().trim().replace(',', '.')
-        val peso = textoPeso.toDoubleOrNull()
-        if (textoPeso.isNotEmpty() && (peso == null || peso <= 0.0 || peso > 999.9)) {
-            fallo(binding.tilPeso, R.string.form_error_peso, binding.etPeso)
+        val validacion = ValidadorRutina.validarEjercicio(
+            series = binding.etSeries.text.toString(),
+            repeticiones = binding.etRepeticiones.text.toString(),
+            peso = binding.etPeso.text.toString()
+        )
+        if (validacion is ValidadorRutina.ResultadoEjercicio.Invalido) {
+            if (ValidadorRutina.Campo.SERIES in validacion.campos) {
+                fallo(binding.tilSeries, R.string.form_error_series, binding.etSeries)
+            }
+            if (ValidadorRutina.Campo.REPETICIONES in validacion.campos) {
+                fallo(binding.tilRepeticiones, R.string.form_error_repeticiones, binding.etRepeticiones)
+            }
+            if (ValidadorRutina.Campo.PESO in validacion.campos) {
+                fallo(binding.tilPeso, R.string.form_error_peso, binding.etPeso)
+            }
         }
 
         primerError?.let { enfocar(it); return }
-        if (dia == null || ejercicio == null || series == null) return
+        if (dia == null || ejercicio == null || validacion !is ValidadorRutina.ResultadoEjercicio.Valido) return
 
         viewModel.guardarLinea(
             LineaRutina(
                 dia = dia,
                 ejercicioId = ejercicio.id,
                 ejercicioNombre = ejercicio.nombre,
-                series = series,
-                repeticiones = reps,
-                pesoKg = if (textoPeso.isEmpty()) null else peso
+                series = validacion.series,
+                repeticiones = validacion.repeticiones,
+                pesoKg = validacion.pesoKg
             )
         )
     }
