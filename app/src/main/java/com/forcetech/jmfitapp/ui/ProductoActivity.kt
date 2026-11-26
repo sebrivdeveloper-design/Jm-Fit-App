@@ -89,20 +89,35 @@ class ProductoActivity : AppCompatActivity() {
     private fun configurarInsets() {
 
         val raiz = findViewById<View>(R.id.main)
+        val navegacion = findViewById<BottomNavigationView>(R.id.barraEntrenador)
+        val paddingNavegacion = navegacion.paddingBottom
 
         ViewCompat.setOnApplyWindowInsetsListener(raiz) { vista, insets ->
 
             val barras = insets.getInsets(
                 WindowInsetsCompat.Type.systemBars()
             )
+            val teclado = insets.getInsets(WindowInsetsCompat.Type.ime())
 
+            // La raíz protege el contenido y el teclado; la barra gestiona su propio borde inferior.
             vista.setPadding(
                 barras.left,
                 barras.top,
                 barras.right,
-                barras.bottom
+                teclado.bottom
             )
 
+            insets
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(navegacion) { vista, insets ->
+            val inferior = if (insets.isVisible(WindowInsetsCompat.Type.ime())) {
+                0
+            } else {
+                insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            }
+            // Evita sumar de nuevo el teclado o los bordes laterales ya aplicados a la raíz.
+            vista.setPadding(vista.paddingLeft, vista.paddingTop, vista.paddingRight, paddingNavegacion + inferior)
             insets
         }
     }
