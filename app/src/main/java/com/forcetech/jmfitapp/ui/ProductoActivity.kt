@@ -1,6 +1,7 @@
 package com.forcetech.jmfitapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -22,6 +23,7 @@ import com.forcetech.jmfitapp.data.database.AppDatabase
 import com.forcetech.jmfitapp.model.Producto
 import com.forcetech.jmfitapp.model.ValidadorProducto
 import com.forcetech.jmfitapp.data.repository.ProductoRepository
+import com.forcetech.jmfitapp.ui.productos.CargaProductos
 import java.text.NumberFormat
 import java.util.Locale
 import kotlinx.coroutines.Job
@@ -42,6 +44,7 @@ import com.forcetech.jmfitapp.ui.common.TemaApp
 class ProductoActivity : AppCompatActivity() {
 
     private lateinit var productoRepository: ProductoRepository
+    private lateinit var cargaProductos: CargaProductos
 
     private lateinit var adapter: ProductoAdapter
 
@@ -81,8 +84,6 @@ class ProductoActivity : AppCompatActivity() {
         tvFecha.text = fechaDeHoy()
         configurarCerrarSesion()
         configurarBarraAdministrador()
-
-        cargarProductos()
     }
 
     private fun configurarInsets() {
@@ -109,6 +110,7 @@ class ProductoActivity : AppCompatActivity() {
     private fun inicializarBaseDatos() {
 
         productoRepository = ProductoRepository(AppDatabase.obtener(applicationContext).productoDao())
+        cargaProductos = CargaProductos(productoRepository)
     }
 
     private fun inicializarVistas() {
@@ -302,36 +304,23 @@ class ProductoActivity : AppCompatActivity() {
 
         consultaJob = lifecycleScope.launch {
 
-            try {
-
-                val productos = productoRepository.listar(
-                    busqueda = busquedaActual,
-                    estado = estadoSeleccionado
-                )
-
-                adapter.actualizarLista(productos)
-
-                if (productos.isEmpty()) {
-
-                    tvSinProductos.visibility = View.VISIBLE
-
-                    rvProductos.visibility = View.GONE
-
-                } else {
-
-                    tvSinProductos.visibility = View.GONE
-
-                    rvProductos.visibility = View.VISIBLE
+            cargaProductos.cargar(
+                busqueda = busquedaActual,
+                estado = estadoSeleccionado,
+                onProductos = { productos ->
+                    adapter.actualizarLista(productos)
+                    tvSinProductos.visibility = if (productos.isEmpty()) View.VISIBLE else View.GONE
+                    rvProductos.visibility = if (productos.isEmpty()) View.GONE else View.VISIBLE
+                },
+                onError = { error ->
+                    Log.e("ProductoActivity", "No se pudieron consultar los productos", error)
+                    Toast.makeText(
+                        this@ProductoActivity,
+                        getString(R.string.error_consultar),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-
-            } catch (e: Exception) {
-
-                Toast.makeText(
-                    this@ProductoActivity,
-                    getString(R.string.error_consultar),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            )
         }
     }
 
