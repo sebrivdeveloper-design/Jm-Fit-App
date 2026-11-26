@@ -20,7 +20,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.forcetech.jmfitapp.R
 import com.forcetech.jmfitapp.data.database.AppDatabase
 import com.forcetech.jmfitapp.model.Producto
-import java.math.BigDecimal
+import com.forcetech.jmfitapp.model.ValidadorProducto
+import com.forcetech.jmfitapp.data.repository.ProductoRepository
 import java.text.NumberFormat
 import java.util.Locale
 import kotlinx.coroutines.Job
@@ -40,7 +41,7 @@ import com.forcetech.jmfitapp.ui.common.TemaApp
 
 class ProductoActivity : AppCompatActivity() {
 
-    private lateinit var productoDao: com.forcetech.jmfitapp.data.dao.ProductoDao
+    private lateinit var productoRepository: ProductoRepository
 
     private lateinit var adapter: ProductoAdapter
 
@@ -107,9 +108,7 @@ class ProductoActivity : AppCompatActivity() {
 
     private fun inicializarBaseDatos() {
 
-        productoDao = AppDatabase.obtener(
-            applicationContext
-        ).productoDao()
+        productoRepository = ProductoRepository(AppDatabase.obtener(applicationContext).productoDao())
     }
 
     private fun inicializarVistas() {
@@ -305,7 +304,7 @@ class ProductoActivity : AppCompatActivity() {
 
             try {
 
-                val productos = productoDao.obtenerProductosFiltrados(
+                val productos = productoRepository.listar(
                     busqueda = busquedaActual,
                     estado = estadoSeleccionado
                 )
@@ -458,79 +457,40 @@ class ProductoActivity : AppCompatActivity() {
             val objetivo = etObjetivo.text.toString().trim()
             val presentacion = etPresentacion.text.toString().trim()
 
-            // Validar campos obligatorios
-
-            if (
-                nombre.isEmpty() ||
-                marca.isEmpty() ||
-                precioTexto.isEmpty() ||
-                objetivo.isEmpty() ||
-                presentacion.isEmpty()
-            ) {
-
-                Toast.makeText(
-                    this,
-                    R.string.error_campos_obligatorios,
-                    Toast.LENGTH_SHORT
-                ).show()
-
-                if (nombre.isEmpty()) etNombre.error = getString(R.string.error_campos_obligatorios)
-                if (marca.isEmpty()) etMarca.error = getString(R.string.error_campos_obligatorios)
-                if (objetivo.isEmpty()) etObjetivo.error = getString(R.string.error_campos_obligatorios)
-                if (presentacion.isEmpty()) etPresentacion.error = getString(R.string.error_campos_obligatorios)
-
-                return@setOnClickListener
-            }
-
-            // Validar precio
-
-            val precio = try {
-
-                BigDecimal(
-                    precioTexto.replace(",", ".")
-                )
-
-            } catch (e: NumberFormatException) {
-
-                null
-            }
-
-            if (precio == null || precio <= BigDecimal.ZERO) {
-
-                etPrecio.error = getString(
-                    R.string.error_precio
-                )
-
-                return@setOnClickListener
-            }
-
-            val nuevoProducto = Producto(
-
-                id = producto?.id ?: 0,
-
-                nombre = nombre,
-
-                marca = marca,
-
-                precio = precio,
-
-                objetivo = objetivo,
-
-                presentacion = presentacion,
-
-                activo = switchActivo.isChecked
+            val validacion = ValidadorProducto.validar(
+                nombre, marca, precioTexto, objetivo, presentacion,
+                activo = switchActivo.isChecked,
+                id = producto?.id ?: 0
             )
+            val nuevoProducto = when (validacion) {
+                is ValidadorProducto.Resultado.CamposObligatorios -> {
+                    Toast.makeText(this, R.string.error_campos_obligatorios, Toast.LENGTH_SHORT).show()
+                    val vistas = mapOf(
+                        ValidadorProducto.Campo.NOMBRE to etNombre,
+                        ValidadorProducto.Campo.MARCA to etMarca,
+                        ValidadorProducto.Campo.OBJETIVO to etObjetivo,
+                        ValidadorProducto.Campo.PRESENTACION to etPresentacion
+                    )
+                    validacion.campos.forEach { campo ->
+                        vistas[campo]?.error = getString(R.string.error_campos_obligatorios)
+                    }
+                    return@setOnClickListener
+                }
+                ValidadorProducto.Resultado.PrecioInvalido -> {
+                    etPrecio.error = getString(R.string.error_precio)
+                    return@setOnClickListener
+                }
+                is ValidadorProducto.Resultado.Valido -> validacion.producto
+            }
 
             lifecycleScope.launch {
 
                 try {
 
+                    val guardado = productoRepository.guardar(nuevoProducto, editando)
                     if (editando) {
 
-                        val filasActualizadas =
-                            productoDao.updateProductos(nuevoProducto)
-
-                        if (filasActualizadas > 0) {
+                        if (guardado) {
 
                             Toast.makeText(
                                 this@ProductoActivity,
@@ -548,8 +508,6 @@ class ProductoActivity : AppCompatActivity() {
                         }
 
                     } else {
-
-                        productoDao.guardarProductos(nuevoProducto)
 
                         Toast.makeText(
                             this@ProductoActivity,
@@ -639,12 +597,9 @@ class ProductoActivity : AppCompatActivity() {
 
                     try {
 
-                        val filas = productoDao.cambiarEstado(
-                            producto.id,
-                            nuevoEstado
-                        )
+                        val actualizado = productoRepository.cambiarEstado(producto)
 
-                        if (filas > 0) {
+                        if (actualizado) {
 
                             Toast.makeText(
                                 this@ProductoActivity,
