@@ -72,11 +72,22 @@ sealed interface ResultadoGuardado {
     data object Error : ResultadoGuardado
 }
 
+/** Ejecuta un bloque como una sola transacción. Es una interfaz para poder reemplazarla en las pruebas. */
+interface Transaccion {
+    suspend fun <T> ejecutar(bloque: suspend () -> T): T
+}
+
+/** Transacción real de Room: o se guarda todo o no se guarda nada. */
+class TransaccionRoom(private val db: AppDatabase) : Transaccion {
+    override suspend fun <T> ejecutar(bloque: suspend () -> T): T = db.withTransaction { bloque() }
+}
+
 /** Rutinas del módulo del entrenador. Todas las operaciones reciben el id del entrenador con sesión. */
 class RutinaRepository(
     private val db: AppDatabase,
     private val esperarBaseLista: suspend () -> Unit,
-    private val reloj: () -> Long = System::currentTimeMillis
+    private val reloj: () -> Long = System::currentTimeMillis,
+    private val transaccion: Transaccion = TransaccionRoom(db)
 ) {
 
     private val dao get() = db.rutinaDao()
@@ -158,13 +169,13 @@ class RutinaRepository(
     suspend fun crear(entrenadorId: Long, datos: DatosRutina): ResultadoGuardado {
         esperarBaseLista()
         return try {
-            db.withTransaction<ResultadoGuardado> {
+            transaccion.ejecutar<ResultadoGuardado> {
                 val clienteId = datos.clienteId
                 if (clienteId == null || db.usuarioDao().contarClienteVigente(entrenadorId, clienteId) == 0) {
-                    return@withTransaction ResultadoGuardado.ClienteInvalido
+                    return@ejecutar ResultadoGuardado.ClienteInvalido
                 }
                 if (dao.contarNombreDuplicado(entrenadorId, datos.nombre, 0L) > 0) {
-                    return@withTransaction ResultadoGuardado.NombreDuplicado
+                    return@ejecutar ResultadoGuardado.NombreDuplicado
                 }
 
                 val ahora = reloj()
@@ -201,13 +212,13 @@ class RutinaRepository(
     suspend fun actualizar(rutinaId: Long, entrenadorId: Long, datos: DatosRutina): ResultadoGuardado {
         esperarBaseLista()
         return try {
-            db.withTransaction<ResultadoGuardado> {
+            transaccion.ejecutar<ResultadoGuardado> {
                 val rutina = dao.obtenerRutina(rutinaId)
                 if (rutina == null || !puedeEditar(rutina, entrenadorId)) {
-                    return@withTransaction ResultadoGuardado.NoDisponible
+                    return@ejecutar ResultadoGuardado.NoDisponible
                 }
                 if (dao.contarNombreDuplicado(entrenadorId, datos.nombre, rutinaId) > 0) {
-                    return@withTransaction ResultadoGuardado.NombreDuplicado
+                    return@ejecutar ResultadoGuardado.NombreDuplicado
                 }
 
                 val sinCliente = dao.clienteActivoOpcionDe(rutinaId) == null
@@ -215,7 +226,7 @@ class RutinaRepository(
                 if (clienteNuevo != null &&
                     db.usuarioDao().contarClienteVigente(entrenadorId, clienteNuevo) == 0
                 ) {
-                    return@withTransaction ResultadoGuardado.ClienteInvalido
+                    return@ejecutar ResultadoGuardado.ClienteInvalido
                 }
 
                 val ahora = reloj()
@@ -234,8 +245,8 @@ class RutinaRepository(
 
     private fun puedeEditar(rutina: Rutina, entrenadorId: Long): Boolean =
         rutina.tipo == TipoRutina.PERSONALIZADA &&
-                rutina.creadoPorId == entrenadorId &&
-                rutina.estado == EstadoRutina.ACTIVA
+            rutina.creadoPorId == entrenadorId &&
+            rutina.estado == EstadoRutina.ACTIVA
 
     /** Finaliza la rutina activa anterior del cliente (si tenía) y crea la nueva asignación ACTIVA. */
     private suspend fun asignar(rutinaId: Long, clienteId: Long, entrenadorId: Long, ahora: Long) {
@@ -289,7 +300,7 @@ class RutinaRepository(
      */
     suspend fun cambiarEstado(rutinaId: Long, entrenadorId: Long, activar: Boolean): Boolean {
         esperarBaseLista()
-        return db.withTransaction {
+        return transaccion.ejecutar {
             val ahora = reloj()
             val nuevoEstado = if (activar) EstadoRutina.ACTIVA else EstadoRutina.INHABILITADA
             val cambiadas = dao.cambiarEstadoPropia(rutinaId, entrenadorId, nuevoEstado, ahora)
