@@ -1,6 +1,7 @@
 package com.forcetech.jmfitapp.data.repository
 
 import androidx.room.withTransaction
+import com.forcetech.jmfitapp.data.dao.CarritoDao
 import com.forcetech.jmfitapp.data.database.AppDatabase
 import com.forcetech.jmfitapp.model.CarritoItem
 import com.forcetech.jmfitapp.model.ReglasCarrito
@@ -22,9 +23,17 @@ import kotlinx.coroutines.flow.Flow
  *         )
  *     }
  */
-class CarritoRepository(private val db: AppDatabase) {
+class CarritoRepository internal constructor(
+    private val dao: CarritoDao,
+    /** Ejecuta el bloque como una sola transacción. En las pruebas se reemplaza por una función simple. */
+    private val enTransaccion: suspend (suspend () -> Unit) -> Unit
+) {
 
-    private val dao = db.carritoDao()
+    /** Constructor de la app: usa el DAO real y las transacciones de Room. */
+    constructor(db: AppDatabase) : this(
+        dao = db.carritoDao(),
+        enTransaccion = { bloque -> db.withTransaction { bloque() } }
+    )
 
     /** Lista del carrito en vivo, en el orden en que se agregaron los productos. */
     fun observarItems(): Flow<List<CarritoItem>> = dao.observarItems()
@@ -39,7 +48,7 @@ class CarritoRepository(private val db: AppDatabase) {
         cantidad: Int = 1
     ) {
         require(cantidad >= 1) { "La cantidad debe ser al menos 1" }
-        db.withTransaction {
+        enTransaccion {
             if (dao.buscar(productoId) == null) {
                 dao.guardar(
                     CarritoItem(
